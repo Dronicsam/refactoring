@@ -42,6 +42,15 @@ export const Header = () => {
       >
         Токены
       </Link>
+      <Link
+        to={ROUTES.operators}
+        style={{
+          color: 'black',
+          textDecoration: 'none',
+        }}
+      >
+        Операторы
+      </Link>
     </Flex>
   )
 }

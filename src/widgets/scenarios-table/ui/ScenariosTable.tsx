@@ -12,7 +12,7 @@ export const ScenariosTable = ({ data }: { data: Scenario[] }) => {
     <Skeleton visible={false} className={classes.container}>
       <Table className={classes.table}>
         <Head headerGroups={table.getHeaderGroups()} />
-        <Body rows={table.getRowModel()} />
+        <Body rows={table.getRowModel()} variant="scenarios" />
       </Table>
     </Skeleton>
   )

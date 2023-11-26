@@ -10,6 +10,7 @@ const Scenarios = lazy(() => import('pages/scenarios/ui'))
 const CreateScenario = lazy(() => import('pages/create-scenario/ui'))
 const Tokens = lazy(() => import('pages/tokens/ui'))
 const Scenario = lazy(() => import('pages/scenario/ui'))
+const Operators = lazy(() => import('pages/operators/ui'))
 
 export default function App() {
   return (
@@ -47,6 +48,14 @@ export default function App() {
               element={
                 <WithRefresh>
                   <Scenario />
+                </WithRefresh>
+              }
+            />
+            <Route
+              path={ROUTES.operators}
+              element={
+                <WithRefresh>
+                  <Operators />
                 </WithRefresh>
               }
             />

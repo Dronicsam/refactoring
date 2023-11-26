@@ -43,7 +43,4 @@ export const useTableStyles = createStyles(({ colors }, centered: boolean) => ({
       },
     },
   },
-  loader: {
-    padding: '10px 0 10px 0',
-  },
 }))

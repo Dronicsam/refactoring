@@ -9,21 +9,9 @@ export const useBodyStyles = createStyles(({ colors }) => ({
     },
     height: '60px',
   },
-  expandedTr: {
-    cursor: 'initial',
-    ':hover': {
-      background: 'transparent',
-    },
-  },
   disabledTr: {
     cursor: 'initial',
     color: colors.gray[4],
     ':hover': { background: 'none' },
-  },
-  downloadTd: {
-    cursor: 'initial',
-  },
-  reportDateTd: {
-    paddingRight: '25px !important',
   },
 }))

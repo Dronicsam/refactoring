@@ -6,12 +6,13 @@ import { useBodyStyles } from './Body.styles'
 
 interface BodyProps {
   rows: RowModel<any>
-  onClick?: (id: any) => void
+  variant?: 'scenarios' | 'tokens' | 'operators'
 }
 
-export const Body = ({ rows, onClick }: BodyProps) => {
+export const Body = ({ rows, variant = 'tokens' }: BodyProps) => {
   const { classes } = useBodyStyles()
   const navigate = useNavigate()
+
   return (
     <tbody>
       {rows.rows.map((row) => (
@@ -20,23 +21,28 @@ export const Body = ({ rows, onClick }: BodyProps) => {
           className={
             row.original.usage_remaining === 0 ? classes.disabledTr : classes.tr
           }
-          onClick={() => {
-            if (row.original.token) {
-              console.log('token')
-            } else navigate(`${ROUTES.scenarios}/${row.original.id}`)
-          }}
         >
-          {row.getVisibleCells().map((cell) => (
-            <td key={cell.id} role="gridcell">
-              {cell.id.includes('id') ? (
-                <Flex justify="end" onClick={() => console.log('a')}>
-                  {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                </Flex>
-              ) : (
-                flexRender(cell.column.columnDef.cell, cell.getContext())
-              )}
-            </td>
-          ))}
+          {row.getVisibleCells().map((cell) => {
+            if (cell.id.includes('id'))
+              return (
+                <td key={cell.id} role="gridcell">
+                  <Flex justify="end">
+                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                  </Flex>
+                </td>
+              )
+            return (
+              <td
+                role="gridcell"
+                onClick={() => {
+                  if (variant === 'scenarios')
+                    navigate(`${ROUTES.scenarios}/${row.original.id}`)
+                }}
+              >
+                {flexRender(cell.column.columnDef.cell, cell.getContext())}
+              </td>
+            )
+          })}
         </tr>
       ))}
     </tbody>

@@ -29,12 +29,16 @@ export const useInitialColumns = () => {
       {
         accessorKey: 'created_at',
         header: () => 'Дата создания',
-        cell: (info) => <Text>{prepareDate(new Date(info.getValue<string>()))}</Text>,
+        cell: (info) => (
+          <Text>{prepareDate(new Date(info.getValue<string>()))}</Text>
+        ),
       },
       {
         accessorKey: 'expired_at',
         header: () => 'Дата окончания действия',
-        cell: (info) => <Text>{prepareDate(new Date(info.getValue<string>()))}</Text>,
+        cell: (info) => (
+          <Text>{prepareDate(new Date(info.getValue<string>()))}</Text>
+        ),
       },
       {
         accessorKey: 'id',
