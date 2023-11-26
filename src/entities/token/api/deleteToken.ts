@@ -1,8 +1,8 @@
 import { $api } from 'shared/api'
 
-export const deleteToken = (id: number) =>
-  $api.delete('/api/delete', {
+export const deleteToken = (token_id: number) =>
+  $api.delete('/token/', {
     params: {
-      id,
+      token_id,
     },
   })

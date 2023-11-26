@@ -1,8 +1,9 @@
 import { ActionIcon, Menu } from '@mantine/core'
 import { Scenario } from 'entities/scenario/types'
+import { Token } from 'entities/token/types'
 import { MoreVertical } from 'shared/iconpack'
 
-export const TableMenu = ({ data }: { data: Scenario }) => (
+export const TableMenu = ({ data }: { data: Scenario | Token }) => (
   <Menu>
     <Menu.Target>
       <ActionIcon>

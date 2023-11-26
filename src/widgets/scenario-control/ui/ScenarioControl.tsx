@@ -8,7 +8,7 @@ import {
 import { useReplicasStore, useScenarioStore } from 'entities/scenario/model'
 
 interface ScenarioControlProps {
-  id?: number
+  id?: string
 }
 
 export const ScenarioControl = ({ id }: ScenarioControlProps) => {
@@ -27,8 +27,10 @@ export const ScenarioControl = ({ id }: ScenarioControlProps) => {
         </Flex>
       ) : (
         <Flex gap={10}>
-          <Button onClick={() => updateScenario(id, 'a')}>Обновить</Button>
-          <Button variant="outline" onClick={() => deleteScenario(id)}>
+          <Button onClick={() => updateScenario(Number(id), 'a')}>
+            Обновить
+          </Button>
+          <Button variant="outline" onClick={() => deleteScenario(Number(id))}>
             Удалить
           </Button>
         </Flex>

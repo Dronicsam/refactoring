@@ -1,12 +1,13 @@
 import { getCoreRowModel, useReactTable } from '@tanstack/react-table'
-import { Token } from 'entities/token/types'
+import { useTokensStore } from 'entities/token/model'
 import { useInitialColumns } from './useInitialColumns'
 
-export const useInitialTable = (data: Token[]) => {
+export const useInitialTable = () => {
+  const tokens = useTokensStore((state) => state.tokens)
   const columns = useInitialColumns()
 
   const table = useReactTable({
-    data,
+    data: tokens,
     columns,
     getCoreRowModel: getCoreRowModel(),
   })

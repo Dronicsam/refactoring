@@ -5,10 +5,11 @@ import { Layout } from 'shared/ui'
 import { MantineProvider, RouterProvider, WithRefresh } from './lib'
 
 const Login = lazy(() => import('pages/login/ui'))
-// const Error404 = lazy(() => import('pages/404-error/ui'))
+const Error404 = lazy(() => import('pages/404-error/ui'))
 const Scenarios = lazy(() => import('pages/scenarios/ui'))
 const CreateScenario = lazy(() => import('pages/create-scenario/ui'))
 const Tokens = lazy(() => import('pages/tokens/ui'))
+const Scenario = lazy(() => import('pages/scenario/ui'))
 
 export default function App() {
   return (
@@ -41,7 +42,15 @@ export default function App() {
                 </WithRefresh>
               }
             />
-            {/* <Route path={ROUTES.error404} element={<Error404 />} /> */}
+            <Route
+              path={`${ROUTES.scenarios}/:scenarioId`}
+              element={
+                <WithRefresh>
+                  <Scenario />
+                </WithRefresh>
+              }
+            />
+            <Route path={ROUTES.error404} element={<Error404 />} />
           </Routes>
         </Layout>
       </MantineProvider>

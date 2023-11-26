@@ -29,7 +29,7 @@ export const useHeadStyles = createStyles(({ colors }, centered: boolean) => ({
   thChildren: {
     gap: '8px',
     color: 'black',
-    fontSize: '16px',
+    fontSize: '14px',
     fontWeight: 400,
     width: '100%',
     alignItems: 'center',

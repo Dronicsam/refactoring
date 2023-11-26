@@ -6,7 +6,8 @@ export interface Replica {
 
 export type Scenario = {
   id?: number
-  description?: string
   name: string
+  description?: string
+  created_at?: string
   replics?: Replica[]
 }

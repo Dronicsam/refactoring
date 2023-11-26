@@ -1,6 +1,6 @@
 export const ROUTES = {
   login: '/login',
-  scenarios: '/',
+  scenarios: '/scenarios',
   create: '/create',
   tokens: '/tokens',
   error404: '/*',

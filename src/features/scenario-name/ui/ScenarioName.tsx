@@ -2,7 +2,7 @@ import { TextInput } from '@mantine/core'
 import { useScenarioStore } from 'entities/scenario/model'
 
 export const ScenarioName = () => {
-  const name  = useScenarioStore((state) => state.name)
+  const name = useScenarioStore((state) => state.name)
   const setName = useScenarioStore((state) => state.setName)
 
   return (

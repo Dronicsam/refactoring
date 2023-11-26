@@ -25,15 +25,6 @@ export const Header = () => {
         Выход
       </Button>
       <Link
-        to={ROUTES.tokens}
-        style={{
-          color: 'black',
-          textDecoration: 'none',
-        }}
-      >
-        Токены
-      </Link>
-      <Link
         to={ROUTES.scenarios}
         style={{
           color: 'black',
@@ -41,6 +32,15 @@ export const Header = () => {
         }}
       >
         Сценарии
+      </Link>
+      <Link
+        to={ROUTES.tokens}
+        style={{
+          color: 'black',
+          textDecoration: 'none',
+        }}
+      >
+        Токены
       </Link>
     </Flex>
   )
