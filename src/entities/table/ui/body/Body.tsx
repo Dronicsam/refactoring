@@ -1,7 +1,7 @@
 import { Flex } from '@mantine/core'
 import { RowModel, flexRender } from '@tanstack/react-table'
 import { useNavigate } from 'react-router-dom'
-import { ROUTES } from 'shared/lib'
+import { ROUTES, copyToClipboard } from 'shared/lib'
 import { useBodyStyles } from './Body.styles'
 
 interface BodyProps {
@@ -37,6 +37,9 @@ export const Body = ({ rows, variant = 'tokens' }: BodyProps) => {
                 onClick={() => {
                   if (variant === 'scenarios')
                     navigate(`${ROUTES.scenarios}/${row.original.id}`)
+                  if (variant === 'tokens') {
+                    copyToClipboard(row.original.token)
+                  } 
                 }}
               >
                 {flexRender(cell.column.columnDef.cell, cell.getContext())}

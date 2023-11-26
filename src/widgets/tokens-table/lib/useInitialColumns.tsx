@@ -1,9 +1,10 @@
-import { Text } from '@mantine/core'
+import { Flex, Text, Tooltip } from '@mantine/core'
 import { ColumnDef } from '@tanstack/react-table'
 import { useMemo } from 'react'
 import { deleteToken } from 'entities/token/api'
 import { useTokensStore } from 'entities/token/model'
 import { Token } from 'entities/token/types'
+import { Copy } from 'shared/iconpack'
 import { prepareDate } from 'shared/lib'
 import { DeleteButton } from 'shared/ui'
 
@@ -19,7 +20,15 @@ export const useInitialColumns = () => {
       {
         accessorKey: 'token',
         header: () => 'Токен',
-        cell: (info) => <Text>{info.getValue<string>()}</Text>,
+        cell: (info) => 
+        <Tooltip label="Нажмите, чтобы скопировать токен">
+          <Flex gap={10} align="center">
+            <Copy size={16} color='gray' />
+          <Text>{info.getValue<string>()}</Text>
+          </Flex>
+          
+        </Tooltip>
+        ,
       },
       {
         accessorKey: 'usage_remaining',

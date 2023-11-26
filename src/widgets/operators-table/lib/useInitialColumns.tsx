@@ -10,7 +10,7 @@ export const useInitialColumns = () =>
         accessorKey: 'name',
         header: () => 'Оператор',
         cell: (info) => (
-          <Text>{`${info.row.original.name} ${info.row.original.surname}`}</Text>
+          <Text>{`${info.row.original.name} ${info.row.original.surname} ${info.row.original.patronymic}`}</Text>
         ),
       },
       {

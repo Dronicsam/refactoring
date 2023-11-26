@@ -11,6 +11,8 @@ export const ScenarioDescription = () => {
       value={description}
       onChange={(e) => setDescription(e.target.value)}
       label="Описание сценария"
+      autosize
+      maxRows={18}
     />
   )
 }

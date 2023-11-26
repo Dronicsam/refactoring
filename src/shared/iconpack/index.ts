@@ -8,4 +8,5 @@ export {
   ArrowDown,
   ArrowUpDown,
   Eraser,
+  Copy
 } from 'lucide-react'

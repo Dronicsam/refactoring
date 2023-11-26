@@ -1,4 +1,4 @@
-import { Button, Flex, Modal, Stack, TextInput } from '@mantine/core'
+import { Button, Flex, Modal, NumberInput, Stack, TextInput } from '@mantine/core'
 import { DatePickerInput } from '@mantine/dates'
 import { useDisclosure } from '@mantine/hooks'
 import { useState } from 'react'
@@ -7,7 +7,7 @@ import { createToken } from 'entities/token/api'
 export const CreateToken = () => {
   const [modalOpened, { open, close }] = useDisclosure(false)
   const [name, setName] = useState('')
-  const [count, setCount] = useState('')
+  const [count, setCount] = useState<number | "">(1)
   const [date, setDate] = useState<Date>(new Date())
 
   return (
@@ -38,7 +38,7 @@ export const CreateToken = () => {
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
-          <TextInput
+          <NumberInput
             placeholder="Введите число"
             label="Количество использований токена"
             sx={{
@@ -47,7 +47,7 @@ export const CreateToken = () => {
               },
             }}
             value={count}
-            onChange={(e) => setCount(e.target.value)}
+            onChange={(e) => setCount(e)}
           />
           <DatePickerInput
             lang="ru"
@@ -61,6 +61,7 @@ export const CreateToken = () => {
               onClick={() => {
                 createToken(name, Number(count), date).then(() => close())
               }}
+              disabled={!name || !count || !date}
             >
               Создать
             </Button>

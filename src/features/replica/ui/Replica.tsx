@@ -9,6 +9,7 @@ export const Replica = ({ id }: { id: number }) => {
   const removeReplica = useReplicasStore((state) => state.removeReplica)
   const setReplica = useReplicasStore((state) => state.setReplica)
   const setInterval = useReplicasStore((state) => state.setInterval)
+
   return (
     <Stack
       bg="white"

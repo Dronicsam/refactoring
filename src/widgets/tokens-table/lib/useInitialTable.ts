@@ -1,4 +1,8 @@
-import { getCoreRowModel, useReactTable } from '@tanstack/react-table'
+import {
+  getCoreRowModel,
+  getSortedRowModel,
+  useReactTable,
+} from '@tanstack/react-table'
 import { useTokensStore } from 'entities/token/model'
 import { useInitialColumns } from './useInitialColumns'
 
@@ -10,6 +14,7 @@ export const useInitialTable = () => {
     data: tokens,
     columns,
     getCoreRowModel: getCoreRowModel(),
+    getSortedRowModel: getSortedRowModel(),
   })
 
   return { table }
