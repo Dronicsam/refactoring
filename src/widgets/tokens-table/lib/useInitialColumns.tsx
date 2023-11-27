@@ -9,7 +9,7 @@ import { prepareDate } from 'shared/lib'
 import { DeleteButton } from 'shared/ui'
 
 export const useInitialColumns = () => {
-  const removeToken = useTokensStore((state) => state.removeToken)
+  const getTokens = useTokensStore((state) => state.getTokens)
   return useMemo<ColumnDef<Token>[]>(
     () => [
       {
@@ -20,15 +20,14 @@ export const useInitialColumns = () => {
       {
         accessorKey: 'token',
         header: () => 'Токен',
-        cell: (info) => 
-        <Tooltip label="Нажмите, чтобы скопировать токен">
-          <Flex gap={10} align="center">
-            <Copy size={16} color='gray' />
-          <Text>{info.getValue<string>()}</Text>
-          </Flex>
-          
-        </Tooltip>
-        ,
+        cell: (info) => (
+          <Tooltip label="Нажмите, чтобы скопировать токен">
+            <Flex gap={10} align="center">
+              <Copy size={16} color="gray" />
+              <Text>{info.getValue<string>()}</Text>
+            </Flex>
+          </Tooltip>
+        ),
       },
       {
         accessorKey: 'usage_remaining',
@@ -55,15 +54,13 @@ export const useInitialColumns = () => {
         cell: ({ row }) => (
           <DeleteButton
             onClick={() =>
-              deleteToken(Number(row.original.id)).then(() =>
-                removeToken(row.original.id)
-              )
+              deleteToken(Number(row.original.id)).then(() => getTokens())
             }
           />
         ),
         enableSorting: false,
       },
     ],
-    [removeToken]
+    [getTokens]
   )
 }

@@ -7,17 +7,22 @@ interface UseReplicasStore {
   addReplica: (replica: Replica) => void
   removeReplica: (id: number) => void
   setReplica: (id: number, text: string) => void
-  setInterval: (id: number, interval: number) => void
+  setInterval: (id: number, interval: string) => void
+  reset: () => void
 }
 
-export const useReplicasStore = create<UseReplicasStore>((set) => ({
+const initialState = {
   replicas: [
     {
       id: 0,
       text: '',
-      interval: 30,
+      interval: '<sli[3000]>',
     },
   ],
+}
+
+export const useReplicasStore = create<UseReplicasStore>((set) => ({
+  ...initialState,
   setReplicas: (replicas) => set(() => ({ replicas })),
   addReplica: (replica) =>
     set((state) => ({ replicas: [...state.replicas, replica] })),
@@ -37,4 +42,5 @@ export const useReplicasStore = create<UseReplicasStore>((set) => ({
         replica.id === id ? { ...replica, interval } : replica
       ),
     })),
+  reset: () => set(initialState),
 }))

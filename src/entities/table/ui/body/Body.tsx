@@ -23,7 +23,7 @@ export const Body = ({ rows, variant = 'tokens' }: BodyProps) => {
           }
         >
           {row.getVisibleCells().map((cell) => {
-            if (cell.id.includes('id'))
+            if (cell.id.includes('id') && !cell.id.includes('telegram'))
               return (
                 <td key={cell.id} role="gridcell">
                   <Flex justify="end">
@@ -34,12 +34,13 @@ export const Body = ({ rows, variant = 'tokens' }: BodyProps) => {
             return (
               <td
                 role="gridcell"
+                key={cell.id}
                 onClick={() => {
                   if (variant === 'scenarios')
                     navigate(`${ROUTES.scenarios}/${row.original.id}`)
                   if (variant === 'tokens') {
                     copyToClipboard(row.original.token)
-                  } 
+                  }
                 }}
               >
                 {flexRender(cell.column.columnDef.cell, cell.getContext())}

@@ -6,6 +6,7 @@ import { ROUTES } from 'shared/lib'
 
 export const Scenarios = () => {
   const navigate = useNavigate()
+
   return (
     <Stack>
       <Header />
@@ -17,40 +18,7 @@ export const Scenarios = () => {
           Создать сценарий
         </Button>
       </Flex>
-      <ScenariosTable
-        data={[
-          {
-            id: 1,
-            name: 'blabla',
-            description: '',
-            created_at: '',
-          },
-          {
-            id: 2,
-            name: 'blabla',
-            description: '',
-            created_at: '',
-          },
-          {
-            id: 3,
-            name: 'blabla',
-            description: '',
-            created_at: '',
-          },
-          {
-            id: 4,
-            name: 'blabla',
-            description: '',
-            created_at: '',
-          },
-          {
-            id: 5,
-            name: 'blabla',
-            description: '',
-            created_at: '',
-          },
-        ]}
-      />
+      <ScenariosTable />
     </Stack>
   )
 }

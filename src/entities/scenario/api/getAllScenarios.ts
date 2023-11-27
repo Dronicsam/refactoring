@@ -1,3 +1,3 @@
 import { $api } from 'shared/api'
 
-export const getAllScenarios = () => $api.get('api/scenario/all')
+export const getAllScenarios = () => $api.get('scenario/all')

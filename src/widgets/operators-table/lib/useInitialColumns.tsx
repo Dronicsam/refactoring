@@ -18,6 +18,11 @@ export const useInitialColumns = () =>
         header: () => 'Телефон',
         cell: (info) => <Text>{info.getValue<string>()}</Text>,
       },
+      {
+        accessorKey: 'telegram_id',
+        header: () => 'Telegram ID',
+        cell: (info) => <Text>{info.getValue<string>()}</Text>,
+      },
     ],
     []
   )

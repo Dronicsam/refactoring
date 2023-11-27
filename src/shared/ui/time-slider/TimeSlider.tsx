@@ -2,10 +2,17 @@ import { Slider } from '@mantine/core'
 
 interface TimeSliderProps {
   id: number
-  onChange: (id: number, value: number) => void
+  interval: number
+  onChange: (id: number, value: string) => void
+  isConstruct: boolean
 }
 
-export const TimeSlider = ({ id, onChange }: TimeSliderProps) => {
+export const TimeSlider = ({
+  id,
+  interval,
+  onChange,
+  isConstruct,
+}: TimeSliderProps) => {
   const valueLabelFormat = (value: number) => {
     const units = ['сек.', 'мин.']
     let unitIndex = 0
@@ -24,6 +31,7 @@ export const TimeSlider = ({ id, onChange }: TimeSliderProps) => {
 
   return (
     <Slider
+      disabled={isConstruct}
       marks={[
         { value: 30, label: '30 сек.' },
         { value: 60, label: '1 мин.' },
@@ -32,10 +40,10 @@ export const TimeSlider = ({ id, onChange }: TimeSliderProps) => {
         { value: 150, label: '2.5 мин' },
       ]}
       max={150}
-      defaultValue={30}
+      defaultValue={interval || 30}
       label={valueLabelFormat}
       thumbSize={20}
-      onChange={(value) => onChange(id, value)}
+      onChange={(value) => onChange(id, `<[${value * 100}]>`)}
     />
   )
 }

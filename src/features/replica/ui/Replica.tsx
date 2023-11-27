@@ -1,11 +1,16 @@
 import { ActionIcon, Box, Flex, Stack, Text, Textarea } from '@mantine/core'
-import { useState } from 'react'
 import { useReplicasStore } from 'entities/scenario/model'
 import { Eraser } from 'shared/iconpack'
 import { DeleteButton, TimeSlider } from 'shared/ui'
 
-export const Replica = ({ id }: { id: number }) => {
-  const [text, setText] = useState('')
+interface ReplicaProps {
+  id: number
+  text: string
+  interval: string
+  isConstruct: boolean
+}
+
+export const Replica = ({ id, text, interval, isConstruct }: ReplicaProps) => {
   const removeReplica = useReplicasStore((state) => state.removeReplica)
   const setReplica = useReplicasStore((state) => state.setReplica)
   const setInterval = useReplicasStore((state) => state.setInterval)
@@ -20,16 +25,21 @@ export const Replica = ({ id }: { id: number }) => {
       w="100%"
       pos="relative"
     >
-      <Box pos="absolute" right={15} top={10}>
-        <DeleteButton onClick={() => removeReplica(id)} />
-      </Box>
+      {isConstruct && (
+        <Box pos="absolute" right={15} top={10}>
+          <DeleteButton onClick={() => removeReplica(id)} />
+        </Box>
+      )}
 
       <Flex gap={15} align="center">
         <Textarea
+          disabled={!isConstruct}
           rightSection={
-            <ActionIcon onClick={() => setText('')}>
-              <Eraser size={20} />
-            </ActionIcon>
+            isConstruct && (
+              <ActionIcon onClick={() => setReplica(id, '')}>
+                <Eraser size={20} />
+              </ActionIcon>
+            )
           }
           sx={{
             '.mantine-Textarea-rightSection': {
@@ -43,12 +53,16 @@ export const Replica = ({ id }: { id: number }) => {
           label="Реплика"
           w="45vw"
           value={text}
-          onChange={(e) => setText(e.target.value)}
-          onBlur={(e) => setReplica(id, e.target.value)}
+          onChange={(e) => setReplica(id, e.target.value)}
         />
       </Flex>
       <Text>Время для ответа оператора:</Text>
-      <TimeSlider id={id} onChange={setInterval} />
+      <TimeSlider
+        id={id}
+        interval={Number(interval.slice(2, -2)) / 100}
+        onChange={setInterval}
+        isConstruct={!isConstruct}
+      />
     </Stack>
   )
 }

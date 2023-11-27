@@ -2,7 +2,7 @@ import { Textarea } from '@mantine/core'
 import { useScenarioStore } from 'entities/scenario/model'
 
 export const ScenarioDescription = () => {
-  const description = useScenarioStore((state) => state.description)
+  const { description } = useScenarioStore((state) => state.scenario)
   const setDescription = useScenarioStore((state) => state.setDescription)
 
   return (

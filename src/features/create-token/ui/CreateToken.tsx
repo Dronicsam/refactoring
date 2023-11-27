@@ -1,13 +1,22 @@
-import { Button, Flex, Modal, NumberInput, Stack, TextInput } from '@mantine/core'
+import {
+  Button,
+  Flex,
+  Modal,
+  NumberInput,
+  Stack,
+  TextInput,
+} from '@mantine/core'
 import { DatePickerInput } from '@mantine/dates'
 import { useDisclosure } from '@mantine/hooks'
 import { useState } from 'react'
 import { createToken } from 'entities/token/api'
+import { useTokensStore } from 'entities/token/model'
 
 export const CreateToken = () => {
+  const getTokens = useTokensStore((state) => state.getTokens)
   const [modalOpened, { open, close }] = useDisclosure(false)
   const [name, setName] = useState('')
-  const [count, setCount] = useState<number | "">(1)
+  const [count, setCount] = useState<number | ''>(1)
   const [date, setDate] = useState<Date>(new Date())
 
   return (
@@ -59,7 +68,10 @@ export const CreateToken = () => {
           <Flex gap={20} justify="end" align="flex-end" mt="58%">
             <Button
               onClick={() => {
-                createToken(name, Number(count), date).then(() => close())
+                createToken(name, Number(count), date).then(() => {
+                  getTokens()
+                  close()
+                })
               }}
               disabled={!name || !count || !date}
             >

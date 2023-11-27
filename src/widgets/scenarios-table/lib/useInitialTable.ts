@@ -3,10 +3,11 @@ import {
   getSortedRowModel,
   useReactTable,
 } from '@tanstack/react-table'
-import { Scenario } from 'entities/scenario/types'
+import { useScenariosStore } from 'entities/scenario/model'
 import { useInitialColumns } from './useInitialColumns'
 
-export const useInitialTable = (data: Scenario[]) => {
+export const useInitialTable = () => {
+  const data = useScenariosStore((state) => state.scenarios)
   const columns = useInitialColumns()
 
   const table = useReactTable({

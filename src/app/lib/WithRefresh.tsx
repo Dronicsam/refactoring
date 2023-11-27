@@ -1,10 +1,10 @@
-import { Fragment, useEffect, useState } from 'react'
+import { Fragment, ReactNode, useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { refresh } from 'shared/api/auth'
 import { ROUTES } from 'shared/lib'
 import { Loading } from 'shared/ui'
 
-export const WithRefresh = ({ children }: any) => {
+export const WithRefresh = ({ children }: { children: ReactNode }) => {
   const [isLoaded, setIsLoaded] = useState(false)
 
   const navigate = useNavigate()

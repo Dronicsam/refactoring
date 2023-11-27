@@ -1,15 +1,22 @@
 import { Skeleton, Table } from '@mantine/core'
-import { Scenario } from 'entities/scenario/types'
+import { useEffect } from 'react'
+import { useScenariosStore } from 'entities/scenario/model'
 import { Body, Head, useTableStyles } from 'entities/table/ui'
-import { useInitialTable, useTableData } from '../lib'
+import { useInitialTable } from '../lib'
 
-export const ScenariosTable = ({ data }: { data: Scenario[] }) => {
-  // const newData = useTableData()
-  // console.log(newData)
-  const { table } = useInitialTable(data)
+export const ScenariosTable = () => {
+  const loading = useScenariosStore((state) => state.loading)
+  const getScenarios = useScenariosStore((state) => state.getScenarios)
+
+  const { table } = useInitialTable()
   const { classes } = useTableStyles(false)
+
+  useEffect(() => {
+    getScenarios()
+  }, [getScenarios])
+
   return (
-    <Skeleton visible={false} className={classes.container}>
+    <Skeleton visible={loading} className={classes.container}>
       <Table className={classes.table}>
         <Head headerGroups={table.getHeaderGroups()} />
         <Body rows={table.getRowModel()} variant="scenarios" />

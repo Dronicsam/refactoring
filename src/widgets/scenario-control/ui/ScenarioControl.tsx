@@ -1,40 +1,34 @@
 import { Box, Button, Flex } from '@mantine/core'
 import { useNavigate } from 'react-router-dom'
-import {
-  createScenario,
-  deleteScenario,
-  updateScenario,
-} from 'entities/scenario/api'
+import { createScenario } from 'entities/scenario/api'
 import { useReplicasStore, useScenarioStore } from 'entities/scenario/model'
+import { ROUTES } from 'shared/lib'
+import { prepareCallText } from '../lib'
 
-interface ScenarioControlProps {
-  id?: string
-}
-
-export const ScenarioControl = ({ id }: ScenarioControlProps) => {
+export const ScenarioControl = () => {
   const navigate = useNavigate()
   const replicas = useReplicasStore((state) => state.replicas)
-  // const name = useScenarioStore((state) => state.name)
+  const { name, description } = useScenarioStore((state) => state.scenario)
+
+  const text = prepareCallText(replicas)
 
   return (
     <Box>
-      {!id ? (
-        <Flex gap={10}>
-          <Button onClick={() => createScenario('a')}>Сохранить</Button>
-          <Button variant="outline" onClick={() => navigate(-1)}>
-            Отмена
-          </Button>
-        </Flex>
-      ) : (
-        <Flex gap={10}>
-          <Button onClick={() => updateScenario(Number(id), 'a')}>
-            Обновить
-          </Button>
-          <Button variant="outline" onClick={() => deleteScenario(Number(id))}>
-            Удалить
-          </Button>
-        </Flex>
-      )}
+      <Flex gap={10}>
+        <Button
+          disabled={!name}
+          onClick={() =>
+            createScenario(name, description, text).then(() =>
+              navigate(ROUTES.scenarios)
+            )
+          }
+        >
+          Сохранить
+        </Button>
+        <Button variant="outline" onClick={() => navigate(-1)}>
+          Отмена
+        </Button>
+      </Flex>
     </Box>
   )
 }

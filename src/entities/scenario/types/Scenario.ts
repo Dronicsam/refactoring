@@ -1,13 +1,13 @@
 export interface Replica {
   id: number
   text: string
-  interval: number
+  interval: string
 }
 
 export type Scenario = {
   id?: number
   name: string
-  description?: string
+  description: string
   created_at?: string
-  replics?: Replica[]
+  call_text?: string
 }

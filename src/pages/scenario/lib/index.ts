@@ -1,1 +1,0 @@
-export { usePrepareData } from './usePrepareData'

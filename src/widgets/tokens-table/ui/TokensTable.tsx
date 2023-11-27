@@ -1,11 +1,19 @@
 import { Skeleton, Table } from '@mantine/core'
+import { useEffect } from 'react'
 import { Body, Head, useTableStyles } from 'entities/table/ui'
-import { useInitialTable, useTableData } from '../lib'
+import { useTokensStore } from 'entities/token/model'
+import { useInitialTable } from '../lib'
 
 export const TokensTable = () => {
-  const { classes } = useTableStyles(true)
-  const { loading } = useTableData()
+  const loading = useTokensStore((state) => state.loading)
+  const getTokens = useTokensStore((state) => state.getTokens)
+
   const { table } = useInitialTable()
+  const { classes } = useTableStyles(true)
+
+  useEffect(() => {
+    getTokens()
+  }, [getTokens])
 
   return (
     <Skeleton visible={loading} className={classes.container}>

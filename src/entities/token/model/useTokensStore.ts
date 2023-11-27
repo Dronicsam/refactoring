@@ -1,17 +1,22 @@
 import { create } from 'zustand'
+import { getAllTokens } from '../api'
 import { Token } from '../types'
 
 interface UseTokensStore {
   tokens: Token[]
-  setTokens: (tokens: Token[]) => void
-  removeToken: (id: number) => void
+  loading: boolean
+  getTokens: () => void
 }
 
 export const useTokensStore = create<UseTokensStore>((set) => ({
   tokens: [],
-  setTokens: (tokens) => set(() => ({ tokens })),
-  removeToken: (id) =>
-    set((state) => ({
-      tokens: state.tokens.filter((token) => token.id !== id),
-    })),
+  loading: true,
+  getTokens: async () => {
+    set({ loading: true })
+    getAllTokens()
+      .then(({ data }) => {
+        set({ tokens: data })
+      })
+      .finally(() => set({ loading: false }))
+  },
 }))
