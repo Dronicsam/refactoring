@@ -4,13 +4,15 @@ import { ROUTES } from 'shared/lib'
 import { Layout } from 'shared/ui'
 import { MantineProvider, RouterProvider, WithRefresh } from './lib'
 
+const Home = lazy(() => import('pages/home/ui'))
+const Course = lazy(() => import('pages/course/ui'))
+const Courses = lazy(() => import('pages/courses/ui'))
+const CreateCourse = lazy(() => import('pages/create-course/ui'))
+const Learning = lazy(() => import('pages/learning/ui'))
+const Student = lazy(() => import('pages/student/ui'))
+const Teacher = lazy(() => import('pages/teacher/ui'))
 const Login = lazy(() => import('pages/login/ui'))
-const Error404 = lazy(() => import('pages/404-error/ui'))
-const Scenarios = lazy(() => import('pages/scenarios/ui'))
-const CreateScenario = lazy(() => import('pages/create-scenario/ui'))
-const Tokens = lazy(() => import('pages/tokens/ui'))
-const Scenario = lazy(() => import('pages/scenario/ui'))
-const Operators = lazy(() => import('pages/operators/ui'))
+const Error404 = lazy(() => import('pages/error-404/ui'))
 
 export default function App() {
   return (
@@ -19,45 +21,15 @@ export default function App() {
         <Layout>
           <Routes>
             <Route path={ROUTES.login} element={<Login />} />
+            <Route path={ROUTES.home} element={<Home />} />
+            <Route path={`${ROUTES.courses}/:courseId`} element={<Course />} />
+            <Route path={ROUTES.courses} element={<Courses />} />
+            <Route path={ROUTES.create} element={<CreateCourse />} />
+            <Route path={ROUTES.student} element={<Student />} />
+            <Route path={ROUTES.teacher} element={<Teacher />} />
             <Route
-              path={ROUTES.scenarios}
-              element={
-                <WithRefresh>
-                  <Scenarios />
-                </WithRefresh>
-              }
-            />
-            <Route
-              path={ROUTES.create}
-              element={
-                <WithRefresh>
-                  <CreateScenario />
-                </WithRefresh>
-              }
-            />
-            <Route
-              path={ROUTES.tokens}
-              element={
-                <WithRefresh>
-                  <Tokens />
-                </WithRefresh>
-              }
-            />
-            <Route
-              path={`${ROUTES.scenarios}/:scenarioId`}
-              element={
-                <WithRefresh>
-                  <Scenario />
-                </WithRefresh>
-              }
-            />
-            <Route
-              path={ROUTES.operators}
-              element={
-                <WithRefresh>
-                  <Operators />
-                </WithRefresh>
-              }
+              path={`${ROUTES.learning}/:courseId`}
+              element={<Learning />}
             />
             <Route path={ROUTES.error404} element={<Error404 />} />
           </Routes>
@@ -66,3 +38,5 @@ export default function App() {
     </RouterProvider>
   )
 }
+
+// TODO сделать withRefresh

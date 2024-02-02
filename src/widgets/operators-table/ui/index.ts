@@ -1,1 +1,0 @@
-export { OperatorsTable } from './OperatorsTable'

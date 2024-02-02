@@ -1,5 +1,0 @@
-export { getScenario } from './getScenario'
-export { getAllScenarios } from './getAllScenarios'
-export { createScenario } from './createScenario'
-export { deleteScenario } from './deleteScenario'
-export { updateScenario } from './updateScenario'

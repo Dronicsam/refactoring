@@ -1,1 +1,0 @@
-export { getAllOperators } from './getAllOperators'

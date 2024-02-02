@@ -1,8 +1,11 @@
 export const ROUTES = {
   login: '/login',
-  scenarios: '/scenarios',
+  courses: '/courses',
+  home: '/home',
+  learning: '/learning',
+  student: '/student',
+  teacher: '/teacher',
+  scenarios: '/scen',
   create: '/create',
-  tokens: '/tokens',
-  operators: '/operators',
   error404: '/*',
 }

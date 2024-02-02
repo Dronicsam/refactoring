@@ -1,1 +1,0 @@
-export { prepareCallText } from './prepareCallText'
