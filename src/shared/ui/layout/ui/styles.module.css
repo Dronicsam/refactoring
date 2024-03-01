@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Montserrat&display=swap');
+
+a {
+  text-decoration: none;
+  font-family: 'Montserrat', serif;
+}
+
+h1 {
+  font-family: 'Major Mono Display';
+  font-weight: 400;
+  font-size: 36px;
+}
+
+.footer {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(7, auto);
+  gap: auto;
+  background: #6b6d6d;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  align-items: center;
+  padding-left: 34px;
+  height: 82px;
+}
+.e_learning {
+  margin: 0;
+  height: fit-content;
+  width: fit-content;
+  color: #83cdc9;
+}
+.test {
+  margin: 0;
+  font-size: 20px;
+  color: #ffffff;
+  /* background-color: yellow; */
+  height: fit-content;
+  width: fit-content;
+}
