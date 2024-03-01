@@ -3,7 +3,7 @@ import { ChevronDown, UserCircle2 } from 'lucide-react'
 import { ReactNode } from 'react'
 import { useMatch, useNavigate } from 'react-router-dom'
 import { ROUTES } from 'shared/lib'
-import styles from './ui/styles.module.css'
+import styles from './styles/styles.module.css'
 
 export const Layout = ({ children }: { children: ReactNode }) => {
   const isLogin = useMatch(ROUTES.login)
