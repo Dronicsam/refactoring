@@ -1,11 +1,11 @@
-import { ThemeComponent } from "shared/config";
+import { ThemeComponent } from 'shared/config'
 
 export const ActionIconTheme: ThemeComponent = {
-    styles: {
-        root: {
-            '&:hover': {
-                background: 'inherit'
-            }
-        }
-    }
+  styles: {
+    root: {
+      '&:hover': {
+        background: 'inherit',
+      },
+    },
+  },
 }

@@ -1,0 +1,35 @@
+.chevron {
+  transition: linear 0.3s;
+}
+.chevron_active {
+  transform: rotate(180deg);
+  transition: linear 0.3s;
+}
+.button {
+  position: relative;
+}
+.selector {
+  background-color: yellow;
+  z-index: 1;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 8%;
+  margin-left: 20px;
+  visibility: hidden;
+}
+
+.selectorActive {
+  background-color: yellow;
+  z-index: 1;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 8%;
+  margin-left: 20px;
+  visibility: visible;
+  padding: 10px 10px 10px 10px;
+}
+
+.selectorOption {
+}
