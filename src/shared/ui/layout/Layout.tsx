@@ -3,6 +3,7 @@ import { ChevronDown, UserCircle2 } from 'lucide-react'
 import { ReactNode } from 'react'
 import { useMatch, useNavigate } from 'react-router-dom'
 import { ROUTES } from 'shared/lib'
+import styles from "./ui/Footer.module.css"
 
 export const Layout = ({ children }: { children: ReactNode }) => {
   const isLogin = useMatch(ROUTES.login)
@@ -31,5 +32,14 @@ export const Layout = ({ children }: { children: ReactNode }) => {
       </Flex>
     }
     {children}
+    <Box className={styles.footer}>
+      <a href="/home" className={styles.e_learning}> e-learning </a>
+      <a href="/about" className={styles.test}> О проекте </a>
+      <a href="/scenarios" className={styles.test}> Что мы предлагаем </a>
+      <a href="/catalog" className={styles.test}> Каталог </a>
+      <a href="/help" className={styles.test}> Помощь </a>
+      <a href="/contacts" className={styles.test}> Контакты </a>
+      <a href="/dev" className={styles.test}> Руководство </a>
+    </Box>
   </Box>
 )}
