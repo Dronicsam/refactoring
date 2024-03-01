@@ -28,6 +28,29 @@ export const Layout = ({ children }: { children: ReactNode }) => {
     setOpenMenu(!openMenu)
   }
 
+  const testValues = [
+    {
+      id: 1,
+      label: 'Е',
+    },
+    {
+      id: 2,
+      label: 'ЕЕ',
+    },
+    {
+      id: 3,
+      label: 'ЕЕЕ',
+    },
+    {
+      id: 4,
+      label: 'ЕЕЕЕ',
+    },
+    {
+      id: 5,
+      label: 'ЕЕЕЕЕ',
+    },
+  ]
+
   return (
     <Box
       sx={{
@@ -44,7 +67,7 @@ export const Layout = ({ children }: { children: ReactNode }) => {
       {!isLogin && (
         <Flex justify="space-between">
           <Flex gap="lg">
-            <div>
+            <div className={styles.button}>
               <Button
                 variant="header"
                 rightIcon={
@@ -56,10 +79,41 @@ export const Layout = ({ children }: { children: ReactNode }) => {
                 Все курсы
               </Button>
               <div className={chooseSelectorClass(openMenu)}>
-                <p>Курсы физики</p>
-                <p>Курсы не физика</p>
-                <p>Курсы погрома</p>
-                <p>Проект разгром</p>
+                <option
+                  className={styles.selectorOption}
+                  onClick={() => console.log('Физика')}
+                >
+                  Курсы физики
+                </option>
+                <option
+                  className={styles.selectorOption}
+                  onClick={() => console.log('Не физика')}
+                >
+                  Курсы не физика
+                </option>
+                <option
+                  className={styles.selectorOption}
+                  onClick={() =>
+                    console.log('Устрой дестрой. Порядок - это отстой')
+                  }
+                >
+                  Курсы погрома
+                </option>
+                <option
+                  className={styles.selectorOption}
+                  onClick={() => console.log('Ееее дестрой')}
+                >
+                  Проект разгром
+                </option>
+                <option
+                  className={styles.selectorOption}
+                  onClick={() => console.log('Все курсы')}
+                >
+                  Посмотреть всё
+                </option>
+                {/* {testValues.map((value)=>(
+                  <option className={styles.selectorOption}>{value.label}</option>
+                ))} */}
               </div>
             </div>
             <Button variant="header" onClick={() => navigate(ROUTES.create)}>
