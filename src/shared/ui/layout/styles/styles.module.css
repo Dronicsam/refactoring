@@ -15,7 +15,7 @@
 
 .selectorActive {
   border-radius: 10px;
-  background-color: yellow;
+  background-color: gray;
   z-index: 1;
   position: absolute;
   display: flex;
@@ -27,6 +27,15 @@
 }
 
 .selectorOption {
+  font-family: 'Montserrat', serif;
+  font-size: 15px;
+  color: rgb(215, 214, 213);
   padding: 3px;
   cursor: pointer;
+  width: fit-content;
+}
+
+.selectorOption:hover {
+  color: black;
+  transition: linear 0.2s;
 }

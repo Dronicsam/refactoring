@@ -28,28 +28,28 @@ export const Layout = ({ children }: { children: ReactNode }) => {
     setOpenMenu(!openMenu)
   }
 
-  const testValues = [
-    {
-      id: 1,
-      label: 'Е',
-    },
-    {
-      id: 2,
-      label: 'ЕЕ',
-    },
-    {
-      id: 3,
-      label: 'ЕЕЕ',
-    },
-    {
-      id: 4,
-      label: 'ЕЕЕЕ',
-    },
-    {
-      id: 5,
-      label: 'ЕЕЕЕЕ',
-    },
-  ]
+  // const testValues = [
+  //   {
+  //     id: 1,
+  //     label: 'Е',
+  //   },
+  //   {
+  //     id: 2,
+  //     label: 'ЕЕ',
+  //   },
+  //   {
+  //     id: 3,
+  //     label: 'ЕЕЕ',
+  //   },
+  //   {
+  //     id: 4,
+  //     label: 'ЕЕЕЕ',
+  //   },
+  //   {
+  //     id: 5,
+  //     label: 'ЕЕЕЕЕ',
+  //   },
+  // ]
 
   return (
     <Box
