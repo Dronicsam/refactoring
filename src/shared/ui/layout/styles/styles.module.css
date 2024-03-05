@@ -1,5 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Montserrat&display=swap');
 
+option {
+  font-family: 'Montserrat', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14px;
+}
+
+p {
+  font-family: 'Montserrat', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14px;
+}
+
 .footer {
   width: 100%;
   display: grid;
@@ -23,6 +39,7 @@
   color: #83cdc9;
   cursor: pointer;
 }
+
 .footerElement {
   margin: 0;
   font-size: 20px;
