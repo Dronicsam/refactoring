@@ -45,13 +45,12 @@
   position: relative;
 }
 
-
 .selectorOption:hover {
   color: rgb(96, 96, 96);
   transition: linear 0.2s;
 }
 
-.divider{
+.divider {
   width: calc(100% + 16px);
   margin-left: -8px;
 }

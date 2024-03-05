@@ -47,7 +47,18 @@ export const Layout = ({ children }: { children: ReactNode }) => {
   }
 
   const ref = useClickOutside<HTMLDivElement>(() => setOpenMenu(false))
-  
+
+  const tempObjects = [
+    {
+      id: 1,
+      label: 'Физика',
+    },
+    {
+      id: 2,
+      label: 'Не физика',
+    },
+  ]
+
   return (
     <Box
       sx={{
@@ -76,42 +87,13 @@ export const Layout = ({ children }: { children: ReactNode }) => {
                 Все курсы
               </Button>
               <div className={chooseSelectorClass(openMenu)}>
-                <option
-                  className={styles.selectorOption}
-                  onClick={() => console.log('Физика')}
-                >
-                  Курсы физики
-                </option>
-                <Divider color="#A69F9F" my="xs" className={styles.divider}/>
-                <option
-                  className={styles.selectorOption}
-                  onClick={() => console.log('Не физика')}
-                >
-                  Курсы не физика
-                </option>
-                <Divider color="#A69F9F" my="xs" className={styles.divider}/>
-                <option
-                  className={styles.selectorOption}
-                  onClick={() =>
-                    console.log('Устрой дестрой. Порядок - это отстой')
-                  }
-                >
-                  Курсы погрома
-                </option>
-                <Divider color="#A69F9F" my="xs" className={styles.divider}/>
-                <option
-                  className={styles.selectorOption}
-                  onClick={() => console.log('Ееее дестрой')}
-                >
-                  Проект разгром
-                </option>
-                <Divider color="#A69F9F" my="xs" className={styles.divider}/>
-                <option
-                  className={styles.selectorOption}
-                  onClick={() => console.log('Все курсы')}
-                >
-                  Посмотреть всё
-                </option>
+                {tempObjects.map((item) => (
+                  <>
+                    <option key={item.id} className={styles.selectorOption} onClick={()=>console.log(item.label)}>{item.label}</option>
+                    <Divider color="#A69F9F" my="xs" className={styles.divider}/>
+                  </>
+                ))}
+                <option className={styles.selectorOption} onClick={()=>console.log("all")}>Показать всё</option>
               </div>
             </div>
             <Button variant="header" onClick={() => navigate(ROUTES.create)}>
