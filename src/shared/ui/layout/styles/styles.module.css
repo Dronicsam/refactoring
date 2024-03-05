@@ -1,16 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Montserrat&display=swap');
 
-a {
-  text-decoration: none;
-  font-family: 'Montserrat', serif;
-}
-
-h1 {
-  font-family: 'Major Mono Display';
-  font-weight: 400;
-  font-size: 36px;
-}
-
 .footer {
   width: 100%;
   display: grid;
@@ -25,16 +14,20 @@ h1 {
   height: 82px;
 }
 .e_learning {
+  font-family: 'Major Mono Display';
+  font-weight: 400;
+  font-size: 36px;
   margin: 0;
   height: fit-content;
   width: fit-content;
   color: #83cdc9;
+  cursor: pointer;
 }
-.test {
+.footerElement {
   margin: 0;
   font-size: 20px;
   color: #ffffff;
-  /* background-color: yellow; */
+  cursor: pointer;
   height: fit-content;
   width: fit-content;
 }

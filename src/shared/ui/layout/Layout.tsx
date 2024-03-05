@@ -8,6 +8,11 @@ import styles from './styles/styles.module.css'
 export const Layout = ({ children }: { children: ReactNode }) => {
   const isLogin = useMatch(ROUTES.login)
   const navigate = useNavigate()
+
+  const handleClick = (path: string)=>{
+    navigate(path)
+  }
+
   return (
     <Box
       sx={{
@@ -42,27 +47,25 @@ export const Layout = ({ children }: { children: ReactNode }) => {
       )}
       {children}
       <Box className={styles.footer}>
-        <a href="/home" className={styles.e_learning}>
-          <h1>e-learning</h1>
-        </a>
-        <a href="/about" className={styles.test}>
+        <option onClick={()=>handleClick("home")} className={styles.e_learning}>e-learning</option>
+        <option onClick={()=>handleClick("about")} className={styles.footerElement}>
           О проекте
-        </a>
-        <a href="/scenarios" className={styles.test}>
+        </option>
+        <option onClick={()=>handleClick("suggests")} className={styles.footerElement}>
           Что мы предлагаем
-        </a>
-        <a href="/catalog" className={styles.test}>
+        </option>
+        <option onClick={()=>handleClick("catalog")} className={styles.footerElement}>
           Каталог
-        </a>
-        <a href="/help" className={styles.test}>
+        </option>
+        <option onClick={()=>handleClick("help")} className={styles.footerElement}>
           Помощь
-        </a>
-        <a href="/contacts" className={styles.test}>
+        </option>
+        <option onClick={()=>handleClick("contacts")} className={styles.footerElement}>
           Контакты
-        </a>
-        <a href="/dev" className={styles.test}>
+        </option>
+        <option onClick={()=>handleClick("dev_team")} className={styles.footerElement}>
           Руководство
-        </a>
+        </option>
       </Box>
     </Box>
   )
