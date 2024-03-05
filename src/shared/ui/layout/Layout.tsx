@@ -105,9 +105,18 @@ export const Layout = ({ children }: { children: ReactNode }) => {
               Создать курс
             </Button>
           </Flex>
-          <ActionIcon onClick={() => navigate(ROUTES.student)}>
-            <UserCircle2 size={16} />
+          <Flex sx={{
+            alignSelf: 'end',
+            gap: 25
+          }}>
+            <ActionIcon onClick={() => navigate(ROUTES.teacher)}>
+            <GraduationCap  />
           </ActionIcon>
+          <ActionIcon onClick={() => navigate(ROUTES.student)}>
+            <UserCircle2 />
+          </ActionIcon>
+          </Flex>
+          
         </Flex>
       )}
       {children}
