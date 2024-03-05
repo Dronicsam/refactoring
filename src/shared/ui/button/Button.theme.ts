@@ -26,11 +26,12 @@ export const ButtonTheme: ThemeComponent = {
         color: 'black',
       },
     }),
-    header: () => ({
+    transparent: () => ({
       root: {
         backgroundColor: 'inherit',
         fontSize: 20,
         fontWeight: 300,
+        padding: 0,
       },
     }),
   },
