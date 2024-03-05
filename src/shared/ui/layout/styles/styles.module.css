@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+.chevron {
+  transition: linear 0.2s;
+}
+.chevron_active {
+  transform: rotate(180deg);
+  transition: linear 0.2s;
+}
+.button {
+  position: relative;
+}
+
+.button:active {
+  transform: none;
+}
+
+.selector {
+  visibility: hidden;
+  position: absolute;
+}
+
+.selectorActive {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+  border-radius: 10px;
+  background-color: #d9d9d9;
+  margin-top: 3px;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.selectorOption {
+  align-self: center;
+  font-family: 'Montserrat', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14px;
+  color: black;
+  padding: 3px;
+  cursor: pointer;
+  position: relative;
+}
+
+.selectorOption:hover {
+  color: rgb(96, 96, 96);
+  transition: linear 0.2s;
+}
+
+.divider {
+  width: calc(100% + 16px);
+  margin-left: -8px;
+}
