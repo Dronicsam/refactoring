@@ -12,20 +12,27 @@ export const CourseContent = () => {
     })
   }
   const createTopic = () => {}
+
   return (
     <>
       <Accordion>
-        {lessons.map((lesson, i) => (
-          <Accordion.Item value={lesson.name} key={lesson.name}>
-            <Accordion.Control>
-              <Text>{i}&ndsp;урок</Text>
-              <Input
-                variant="transparent"
-                value={lesson.name}
-                onChange={() => {}}
-              />
+        {lessons.length ? lessons.map((lesson, i) => (
+          <Accordion.Item value={lesson.name} key={lesson.name} sx={{
+            background: 'white',
+            borderRadius: `${i === 0 * 10}px 10px 10px 10px`,
+            '&:hover': {
+                background: '#F7F7F7'
+            }
+          }}>
+            <Accordion.Control sx={{
+                '&:hover': {
+                    background: 'transparent'
+                }
+            }}>
+              <Text>{i + 1} урок</Text>
+              <Text fz={22}>{lesson.name}</Text>
             </Accordion.Control>
-            <Accordion.Panel>
+            <Accordion.Panel pt={0}>
               <Text>Содержание: </Text>
               <List>
                 {lesson.topics.map((topic) => (
@@ -34,10 +41,10 @@ export const CourseContent = () => {
                   </List.Item>
                 ))}
               </List>
-              <AddButton label="Добавить тему" onClick={createTopic} />
+              <AddButton variant="small" label="Добавить тему" onClick={createTopic} />
             </Accordion.Panel>
           </Accordion.Item>
-        ))}
+        )) : <Text fz={16}>Здесь будет отображено содержание курса, включающее в себя уроки и темы. Нажмите на Добавить урок, чтобы отредактировать содержимое.</Text>}
       </Accordion>
       <AddButton label="Добавить урок" onClick={createLesson} />
     </>
