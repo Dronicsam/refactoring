@@ -5,7 +5,7 @@ import { Layout } from 'shared/ui'
 import { MantineProvider, RouterProvider, WithRefresh } from './lib'
 
 const Home = lazy(() => import('pages/home/ui'))
-const Course = lazy(() => import('pages/course/ui'))
+const Course = lazy(() => import('pages/course/ui/course'))
 const Courses = lazy(() => import('pages/courses/ui'))
 const CreateCourse = lazy(() => import('pages/create-course/ui'))
 const Learning = lazy(() => import('pages/learning/ui'))
@@ -22,7 +22,7 @@ export default function App() {
           <Routes>
             <Route path={ROUTES.login} element={<Login />} />
             <Route path={ROUTES.home} element={<Home />} />
-            <Route path={`${ROUTES.courses}/:courseId`} element={<Course />} />
+            <Route path={`${ROUTES.courses}/:1`} element={<Course />} />
             <Route path={ROUTES.courses} element={<Courses />} />
             <Route path={ROUTES.create} element={<CreateCourse />} />
             <Route path={ROUTES.student} element={<Student />} />

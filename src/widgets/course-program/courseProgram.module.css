@@ -1,0 +1,11 @@
+.containerAccordion {
+    background-color: white;
+    border-radius: 1em;
+}
+.content {
+    padding: 1%;
+}
+.listItems {
+    margin-left: 1%;
+    font-size: 20px;
+}
