@@ -1,4 +1,3 @@
-
 import { Tabs } from '@mantine/core'
 
 export const HomeTabs = () => {

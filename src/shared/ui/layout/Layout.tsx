@@ -57,7 +57,7 @@ export const Layout = ({ children }: { children: ReactNode }) => {
           </Flex>
           
         </Flex>
-      }
+      )}
       {children}
       <Box className={styles.footer}>
         <option onClick={()=>handleClick("home")} className={styles.e_learning}>e-learning</option>
