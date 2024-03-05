@@ -111,9 +111,6 @@ export const Layout = ({ children }: { children: ReactNode }) => {
                 >
                   Посмотреть всё
                 </option>
-                {/* {testValues.map((value)=>(
-                  <option className={styles.selectorOption}>{value.label}</option>
-                ))} */}
               </div>
             </div>
             <Button variant="header" onClick={() => navigate(ROUTES.create)}>

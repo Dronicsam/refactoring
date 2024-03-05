@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-
 .chevron {
   transition: linear 0.3s;
 }
@@ -17,7 +15,7 @@
 
 .selectorActive {
   border-radius: 10px;
-  background-color: #D9D9D9;;
+  background-color: gray;
   z-index: 1;
   position: absolute;
   display: flex;
@@ -29,18 +27,15 @@
 }
 
 .selectorOption {
-  font-family: "Montserrat", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
+  font-family: 'Montserrat', serif;
   font-size: 15px;
-  color: black;
+  color: rgb(215, 214, 213);
   padding: 3px;
   cursor: pointer;
   width: fit-content;
 }
 
 .selectorOption:hover {
-  color: rgb(96, 96, 96);
+  color: black;
   transition: linear 0.2s;
 }
