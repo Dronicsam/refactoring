@@ -98,7 +98,7 @@ export const Layout = ({ children }: { children: ReactNode }) => {
                     <Divider color="#A69F9F" my="xs" className={styles.divider}/>
                   </>
                 ))}
-                <option className={styles.selectorOption} onClick={()=>handleClick(item.label)}>Показать всё</option>
+                <option className={styles.selectorOption} onClick={()=>handleClick("allCourses")}>Показать всё</option>
               </div>
             </div>
             <Button variant="header" onClick={() => navigate(ROUTES.create)}>
