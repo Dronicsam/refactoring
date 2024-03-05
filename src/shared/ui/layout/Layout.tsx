@@ -8,6 +8,11 @@ import styles from './styles/styles.module.css'
 export const Layout = ({ children }: { children: ReactNode }) => {
   const isLogin = useMatch(ROUTES.login)
   const navigate = useNavigate()
+
+  const handleClick = (path: string) => {
+    navigate(path)
+  }
+
   const [openMenu, setOpenMenu] = useState(false)
 
   const chooseChevronClass = (openMenuProp: boolean) => {
@@ -89,11 +94,11 @@ export const Layout = ({ children }: { children: ReactNode }) => {
               <div className={chooseSelectorClass(openMenu)}>
                 {tempObjects.map((item) => (
                   <>
-                    <option key={item.id} className={styles.selectorOption} onClick={()=>console.log(item.label)}>{item.label}</option>
+                    <option key={item.id} className={styles.selectorOption} onClick={()=>handleClick(item.label)}>{item.label}</option>
                     <Divider color="#A69F9F" my="xs" className={styles.divider}/>
                   </>
                 ))}
-                <option className={styles.selectorOption} onClick={()=>console.log("all")}>Показать всё</option>
+                <option className={styles.selectorOption} onClick={()=>handleClick(item.label)}>Показать всё</option>
               </div>
             </div>
             <Button variant="header" onClick={() => navigate(ROUTES.create)}>
