@@ -12,6 +12,13 @@ export const TextInputTheme: ThemeComponent = {
       },
     }
   },
+  variants: {
+    transparent: () => ({
+      root: {
+        background: 'none',
+      },
+    }),
+  },
   defaultProps: {
     icon: null,
   },

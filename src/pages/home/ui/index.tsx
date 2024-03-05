@@ -1,5 +1,5 @@
-import { Box, Center, Stack, Text } from '@mantine/core'
-import { HomeTabs } from 'widgets/home-tabs/ui'
+import { Stack, Text } from '@mantine/core'
+import { HomeTabs } from "widgets/home-tabs/ui"
 
 const Home = () => (
   <Stack>

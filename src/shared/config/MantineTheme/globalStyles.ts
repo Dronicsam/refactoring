@@ -7,11 +7,9 @@ export const globalStyles: GlobalStylesOptions = ({ colors }) => ({
   body: {
     maxWidth: '100vw',
     minHeight: '100vh',
-    height: '100vh',
-    width: '100vw',
-    overflow: 'hidden',
+    overflowY: 'scroll',
     margin: 0,
-    backgroundColor: '#C1B8B8',
+    backgroundColor: '#EBE5E5',
   },
   '#root': {
     display: 'flex',
