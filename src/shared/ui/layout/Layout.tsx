@@ -1,5 +1,5 @@
 import { ActionIcon, Box, Button, Flex } from '@mantine/core'
-import { ChevronDown, UserCircle2 } from 'lucide-react'
+import { ChevronDown, GraduationCap, UserCircle2 } from 'lucide-react'
 import { ReactNode } from 'react'
 import { useMatch, useNavigate } from 'react-router-dom'
 import { ROUTES } from 'shared/lib'
@@ -38,9 +38,18 @@ export const Layout = ({ children }: { children: ReactNode }) => {
               Создать курс
             </Button>
           </Flex>
-          <ActionIcon onClick={() => navigate(ROUTES.student)}>
-            <UserCircle2 size={16} />
+          <Flex sx={{
+            alignSelf: 'end',
+            gap: 25
+          }}>
+            <ActionIcon onClick={() => navigate(ROUTES.teacher)}>
+            <GraduationCap  />
           </ActionIcon>
+          <ActionIcon onClick={() => navigate(ROUTES.student)}>
+            <UserCircle2 />
+          </ActionIcon>
+          </Flex>
+          
         </Flex>
       )}
       {children}

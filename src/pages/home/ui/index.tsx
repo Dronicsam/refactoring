@@ -1,7 +1,7 @@
 import { Stack, Tabs, Text } from '@mantine/core'
-import { CompletedTab } from 'widgets/completed-tab/ui'
+import { CompletedTab } from 'widgets/completed-list/ui'
 import { MainTab } from 'widgets/main-tab/ui'
-import { ProcessTab } from 'widgets/process-tab/ui'
+import { ProcessTab } from 'widgets/process-list/ui'
 
 const Home = () => (
   <Stack>
