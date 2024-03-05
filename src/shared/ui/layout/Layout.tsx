@@ -1,6 +1,6 @@
-import { ActionIcon, Box, Button, Flex } from '@mantine/core'
+import { ActionIcon, Box, Button, Divider, Flex } from '@mantine/core'
 import { ChevronDown, UserCircle2 } from 'lucide-react'
-import { ReactNode, useState } from 'react'
+import { ReactNode, useState, MutableRefObject, useEffect, useRef } from 'react'
 import { useMatch, useNavigate } from 'react-router-dom'
 import { ROUTES } from 'shared/lib'
 import styles from './styles/styles.module.css'
@@ -19,38 +19,35 @@ export const Layout = ({ children }: { children: ReactNode }) => {
 
   const chooseSelectorClass = (openMenuProp: boolean) => {
     if (openMenuProp) {
-      return styles.selector
+      return styles.selectorActive
     }
-    return styles.selectorActive
+    return styles.selector
   }
 
-  const handleClick = () => {
-    setOpenMenu(!openMenu)
+  const useClickOutside = <T extends HTMLElement = any>(
+    handler: () => void
+  ): MutableRefObject<T | null> => {
+    const ref = useRef<T | null>(null)
+
+    useEffect(() => {
+      const handleClickOutside = (event: MouseEvent) => {
+        if (ref.current && !ref.current.contains(event.target as Node)) {
+          handler()
+        }
+      }
+
+      document.addEventListener('mousedown', handleClickOutside)
+
+      return () => {
+        document.removeEventListener('mousedown', handleClickOutside)
+      }
+    }, [ref, handler])
+
+    return ref
   }
 
-  // const testValues = [
-  //   {
-  //     id: 1,
-  //     label: 'Е',
-  //   },
-  //   {
-  //     id: 2,
-  //     label: 'ЕЕ',
-  //   },
-  //   {
-  //     id: 3,
-  //     label: 'ЕЕЕ',
-  //   },
-  //   {
-  //     id: 4,
-  //     label: 'ЕЕЕЕ',
-  //   },
-  //   {
-  //     id: 5,
-  //     label: 'ЕЕЕЕЕ',
-  //   },
-  // ]
-
+  const ref = useClickOutside<HTMLDivElement>(() => setOpenMenu(false))
+  
   return (
     <Box
       sx={{
@@ -67,13 +64,13 @@ export const Layout = ({ children }: { children: ReactNode }) => {
       {!isLogin && (
         <Flex justify="space-between">
           <Flex gap="lg">
-            <div className={styles.button}>
+            <div className={styles.button} ref={ref}>
               <Button
                 variant="header"
                 rightIcon={
                   <ChevronDown className={chooseChevronClass(openMenu)} />
                 }
-                onClick={handleClick}
+                onClick={() => setOpenMenu(!openMenu)}
                 className={styles.button}
               >
                 Все курсы
@@ -85,12 +82,14 @@ export const Layout = ({ children }: { children: ReactNode }) => {
                 >
                   Курсы физики
                 </option>
+                <Divider color="#A69F9F" my="xs" className={styles.divider}/>
                 <option
                   className={styles.selectorOption}
                   onClick={() => console.log('Не физика')}
                 >
                   Курсы не физика
                 </option>
+                <Divider color="#A69F9F" my="xs" className={styles.divider}/>
                 <option
                   className={styles.selectorOption}
                   onClick={() =>
@@ -99,12 +98,14 @@ export const Layout = ({ children }: { children: ReactNode }) => {
                 >
                   Курсы погрома
                 </option>
+                <Divider color="#A69F9F" my="xs" className={styles.divider}/>
                 <option
                   className={styles.selectorOption}
                   onClick={() => console.log('Ееее дестрой')}
                 >
                   Проект разгром
                 </option>
+                <Divider color="#A69F9F" my="xs" className={styles.divider}/>
                 <option
                   className={styles.selectorOption}
                   onClick={() => console.log('Все курсы')}
