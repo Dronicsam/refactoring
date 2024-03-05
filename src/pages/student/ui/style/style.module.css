@@ -16,6 +16,7 @@ p {
   width: 290px;
   border-radius: 10px;
   text-align: center;
+  align-content: center;
 }
 
 .user_block_text {
