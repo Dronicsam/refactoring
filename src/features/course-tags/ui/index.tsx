@@ -7,10 +7,9 @@ import {
   Stack,
   Text,
 } from '@mantine/core'
+import { useState } from 'react'
 import { useCourseStore } from 'entities/course/model/useCourseStore'
 import { TagCard } from 'entities/course/ui'
-import { Plus } from 'lucide-react'
-import { useState } from 'react'
 import { AddButton } from 'shared/ui'
 
 export const CourseTags = () => {

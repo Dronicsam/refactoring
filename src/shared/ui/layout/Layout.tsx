@@ -1,6 +1,5 @@
 import { Box } from '@mantine/core'
 import { ReactNode } from 'react'
-import styles from './styles/styles.css'
 
 export const Layout = ({ children }: { children: ReactNode }) => (
   <Box

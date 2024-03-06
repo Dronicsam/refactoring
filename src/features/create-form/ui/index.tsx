@@ -3,7 +3,7 @@ import { useCourseStore } from 'entities/course/model/useCourseStore'
 
 export const CreateForm = () => {
   const { name, setName, description, setDescription } = useCourseStore()
-  console.log(name)
+
   return (
     <Stack>
       <Input

@@ -1,9 +1,9 @@
 import { lazy } from 'react'
 import { Route, Routes } from 'react-router-dom'
+import { Footer } from 'widgets/footer/ui'
+import { Header } from 'widgets/header/ui'
 import { ROUTES } from 'shared/lib'
 import { Layout } from 'shared/ui'
-import { Header } from 'widgets/header/ui'
-import { Footer } from 'widgets/footer/ui'
 import { MantineProvider, RouterProvider, WithRefresh } from './lib'
 
 const Home = lazy(() => import('pages/home/ui'))

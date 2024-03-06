@@ -23,6 +23,6 @@ export interface CourseState extends Course {
   setTags: (tags: string[]) => void
   addLesson: (lesson: Lesson) => void
   deleteLesson: (id: number) => void
-  changeLessonName: (id: number, name: string) => void
-  changeTopicName: (lessongId: number, topicId: number, name: string) => void
+  changeLessonName?: (id: number, name: string) => void
+  changeTopicName?: (lessongId: number, topicId: number, name: string) => void
 }

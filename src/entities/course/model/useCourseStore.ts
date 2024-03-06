@@ -1,5 +1,5 @@
 import { create } from 'zustand'
-import { Course, CourseState } from '../types'
+import { CourseState } from '../types'
 
 export const useCourseStore = create<CourseState>((set) => ({
   name: '',

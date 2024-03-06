@@ -7,7 +7,11 @@ interface AddButtonProps {
   label: string
 }
 
-export const AddButton = ({ variant="default", onClick, label }: AddButtonProps) => (
+export const AddButton = ({
+  variant = 'default',
+  onClick,
+  label,
+}: AddButtonProps) => (
   <Button
     variant="transparent"
     onClick={onClick}

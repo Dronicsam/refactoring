@@ -1,9 +1,9 @@
 import { Box, Flex, Stack, Text } from '@mantine/core'
+import { useNavigate } from 'react-router-dom'
+import { CourseContent } from 'widgets/course-content/ui'
 import { ControlButtons } from 'features/control-buttons/ui'
 import { CourseTags } from 'features/course-tags/ui'
 import { CreateForm } from 'features/create-form/ui'
-import { useNavigate } from 'react-router-dom'
-import { CourseContent } from 'widgets/course-content/ui'
 
 const CreateCourse = () => {
   const navigate = useNavigate()
