@@ -25,7 +25,7 @@ export const Selector = () => {
   }
   ;<div className={styles.button}>
     <Button
-      variant="header"
+      variant="transparent"
       rightIcon={<ChevronDown className={chooseChevronClass(openMenu)} />}
       onClick={handleClick}
       className={styles.button}
