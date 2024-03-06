@@ -2,6 +2,8 @@ import { lazy } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { ROUTES } from 'shared/lib'
 import { Layout } from 'shared/ui'
+import { Header } from 'widgets/header/ui'
+import { Footer } from 'widgets/footer/ui'
 import { MantineProvider, RouterProvider, WithRefresh } from './lib'
 
 const Home = lazy(() => import('pages/home/ui'))
@@ -19,6 +21,7 @@ export default function App() {
     <RouterProvider>
       <MantineProvider>
         <Layout>
+          <Header />
           <Routes>
             <Route path={ROUTES.login} element={<Login />} />
             <Route path={ROUTES.home} element={<Home />} />
@@ -34,6 +37,7 @@ export default function App() {
             <Route path={ROUTES.error404} element={<Error404 />} />
           </Routes>
         </Layout>
+        <Footer />
       </MantineProvider>
     </RouterProvider>
   )
