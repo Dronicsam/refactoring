@@ -7,7 +7,6 @@ export const globalStyles: GlobalStylesOptions = ({ colors }) => ({
   body: {
     maxWidth: '100vw',
     minHeight: '100vh',
-    overflowY: 'scroll',
     margin: 0,
     backgroundColor: '#EBE5E5',
   },
