@@ -13,6 +13,7 @@ const CreateCourse = lazy(() => import('pages/create-course/ui'))
 const Learning = lazy(() => import('pages/learning/ui'))
 const Student = lazy(() => import('pages/student/ui'))
 const Teacher = lazy(() => import('pages/teacher/ui'))
+const Topic = lazy(() => import('pages/topic/ui'))
 const Login = lazy(() => import('pages/login/ui'))
 const Error404 = lazy(() => import('pages/error-404/ui'))
 
@@ -34,6 +35,7 @@ export default function App() {
               path={`${ROUTES.learning}/:courseId`}
               element={<Learning />}
             />
+            <Route path={`${ROUTES.topic}/:topicId`} element={<Topic />} />
             <Route path={ROUTES.error404} element={<Error404 />} />
           </Routes>
         </Layout>

@@ -15,5 +15,19 @@ export const useCourseStore = create<CourseState>((set) => ({
     set((state) => ({
       lessons: state.lessons.filter((lesson) => lesson.id !== id),
     })),
+  changeLessonName: (id, name) =>
+    set((state) => ({
+      lessons: state.lessons.map((lesson) =>
+        lesson.id === id ? { ...lesson, name } : lesson
+      ),
+    })),
+  addTopic: (id, topic) =>
+    set((state) => ({
+      lessons: state.lessons.map((lesson) =>
+        lesson.id === id
+          ? { ...lesson, topics: [...lesson.topics, topic] }
+          : lesson
+      ),
+    })),
   // changeTopicName: (id, name) => set((state) => ({  }))
 }))

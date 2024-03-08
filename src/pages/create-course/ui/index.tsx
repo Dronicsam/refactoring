@@ -12,7 +12,7 @@ const CreateCourse = () => {
   }
   const onSubmit = () => {}
   return (
-    <Stack h="100%">
+    <Stack h="100%" pos="relative">
       <Text fw={500} fz={28}>
         Создание курса
       </Text>
@@ -21,7 +21,7 @@ const CreateCourse = () => {
           <CreateForm />
           <CourseTags />
         </Stack>
-        <Stack w="60%" pos="relative">
+        <Stack w="60%">
           <CourseContent />
           <Box pos="absolute" bottom={50} right={0}>
             <ControlButtons onCancel={onCancel} onSubmit={onSubmit} />

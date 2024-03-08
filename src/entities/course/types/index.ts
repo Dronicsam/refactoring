@@ -1,4 +1,5 @@
 interface Topic {
+  id: number
   name: string
   content: any
   files: any[]
@@ -23,6 +24,7 @@ export interface CourseState extends Course {
   setTags: (tags: string[]) => void
   addLesson: (lesson: Lesson) => void
   deleteLesson: (id: number) => void
-  changeLessonName?: (id: number, name: string) => void
+  addTopic: (id: number, topic: Topic) => void
+  changeLessonName: (id: number, name: string) => void
   changeTopicName?: (lessongId: number, topicId: number, name: string) => void
 }

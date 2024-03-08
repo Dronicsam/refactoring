@@ -1,9 +1,12 @@
 import { Accordion, Input, List, Text } from '@mantine/core'
+import { useNavigate } from 'react-router-dom'
 import { useCourseStore } from 'entities/course/model/useCourseStore'
+import { ROUTES } from 'shared/lib'
 import { AddButton } from 'shared/ui'
 
 export const CourseContent = () => {
-  const { lessons, addLesson } = useCourseStore()
+  const navigate = useNavigate()
+  const { lessons, addLesson, addTopic, changeLessonName } = useCourseStore()
   const createLesson = () => {
     addLesson({
       id: Math.random(),
@@ -11,7 +14,15 @@ export const CourseContent = () => {
       topics: [],
     })
   }
-  const createTopic = () => {}
+
+  const createTopic = (lessonId: number) => {
+    addTopic(lessonId, {
+      id: Math.random(),
+      name: 'Новая тема',
+      content: '',
+      files: [],
+    })
+  }
 
   return (
     <>
@@ -20,7 +31,7 @@ export const CourseContent = () => {
           lessons.map((lesson, i) => (
             <Accordion.Item
               value={lesson.name}
-              key={lesson.name}
+              key={lesson.id}
               sx={{
                 background: 'white',
                 borderRadius: `${i === 0 * 10}px 10px 10px 10px`,
@@ -37,21 +48,37 @@ export const CourseContent = () => {
                 }}
               >
                 <Text>{i + 1} урок</Text>
-                <Text fz={22}>{lesson.name}</Text>
+                <Input
+                  value={lesson.name}
+                  onChange={(e) => changeLessonName(lesson.id, e.target.value)}
+                />
               </Accordion.Control>
               <Accordion.Panel pt={0}>
                 <Text>Содержание: </Text>
-                <List>
+                <List ml="lg">
                   {lesson.topics.map((topic) => (
-                    <List.Item key={topic.name}>
-                      <Input variant="transparent" value={topic.name} />
+                    <List.Item key={topic.id}>
+                      <Text
+                        onClick={() => navigate(`${ROUTES.topic}/:${topic.id}`)}
+                        sx={{
+                          textDecoration: 'underline',
+                          textDecorationColor: 'white',
+                          '&:hover': {
+                            textDecorationColor: 'black',
+                            cursor: 'pointer',
+                            transition: 'text-decoration 0.2s ease',
+                          },
+                        }}
+                      >
+                        {topic.name}
+                      </Text>
                     </List.Item>
                   ))}
                 </List>
                 <AddButton
                   variant="small"
                   label="Добавить тему"
-                  onClick={createTopic}
+                  onClick={() => createTopic(lesson.id)}
                 />
               </Accordion.Panel>
             </Accordion.Item>
