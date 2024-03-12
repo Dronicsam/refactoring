@@ -8,16 +8,10 @@ p {
 }
 
 .container {
-  height: 100%;
   display: grid;
-  overflow: scroll;
   grid-template-columns: 30% 60%;
   column-gap: 100px;
   margin-top: 50px;
-}
-
-.container::-webkit-scrollbar {
-    display: none;
 }
 
 .user_container {

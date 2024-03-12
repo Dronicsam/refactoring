@@ -1,5 +1,5 @@
 import { create } from 'zustand'
-import { Course, CourseState } from '../types'
+import { CourseState } from '../types'
 
 export const useCourseStore = create<CourseState>((set) => ({
   name: '',
@@ -14,6 +14,20 @@ export const useCourseStore = create<CourseState>((set) => ({
   deleteLesson: (id) =>
     set((state) => ({
       lessons: state.lessons.filter((lesson) => lesson.id !== id),
+    })),
+  changeLessonName: (id, name) =>
+    set((state) => ({
+      lessons: state.lessons.map((lesson) =>
+        lesson.id === id ? { ...lesson, name } : lesson
+      ),
+    })),
+  addTopic: (id, topic) =>
+    set((state) => ({
+      lessons: state.lessons.map((lesson) =>
+        lesson.id === id
+          ? { ...lesson, topics: [...lesson.topics, topic] }
+          : lesson
+      ),
     })),
   // changeTopicName: (id, name) => set((state) => ({  }))
 }))

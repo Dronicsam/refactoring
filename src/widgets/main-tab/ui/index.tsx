@@ -1,7 +1,7 @@
 import { Stack, Flex, Button, Text } from '@mantine/core'
-import { ProcessCard, MiniCard } from 'entities/course/ui'
 import { ArrowRight } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
+import { ProcessCard, MiniCard } from 'entities/course/ui'
 import { ROUTES } from 'shared/lib'
 
 export const MainTab = () => {

@@ -1,5 +1,7 @@
 import { lazy } from 'react'
 import { Route, Routes } from 'react-router-dom'
+import { Footer } from 'widgets/footer/ui'
+import { Header } from 'widgets/header/ui'
 import { ROUTES } from 'shared/lib'
 import { Layout } from 'shared/ui'
 import { MantineProvider, RouterProvider, WithRefresh } from './lib'
@@ -11,6 +13,7 @@ const CreateCourse = lazy(() => import('pages/create-course/ui'))
 const Learning = lazy(() => import('pages/learning/ui'))
 const Student = lazy(() => import('pages/student/ui'))
 const Teacher = lazy(() => import('pages/teacher/ui'))
+const Topic = lazy(() => import('pages/topic/ui'))
 const Login = lazy(() => import('pages/login/ui'))
 const Error404 = lazy(() => import('pages/error-404/ui'))
 
@@ -19,6 +22,7 @@ export default function App() {
     <RouterProvider>
       <MantineProvider>
         <Layout>
+          <Header />
           <Routes>
             <Route path={ROUTES.login} element={<Login />} />
             <Route path={ROUTES.home} element={<Home />} />
@@ -31,9 +35,11 @@ export default function App() {
               path={`${ROUTES.learning}/:courseId`}
               element={<Learning />}
             />
+            <Route path={`${ROUTES.topic}/:topicId`} element={<Topic />} />
             <Route path={ROUTES.error404} element={<Error404 />} />
           </Routes>
         </Layout>
+        <Footer />
       </MantineProvider>
     </RouterProvider>
   )
