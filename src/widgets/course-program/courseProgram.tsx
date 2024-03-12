@@ -13,19 +13,19 @@ interface CourseProgramProps {
 export const CourseProgram = ({ program }: CourseProgramProps) => (
     <Stack >
 
-    <Title size={36} fw={500}>Программа курса</Title>
+    <Title className={styles.title}>Программа курса</Title>
     <Accordion radius="xl" className={styles.containerAccordion}>
       {
         program.map(prog => 
         <Accordion.Item key={prog.id} value={prog.name}>
             <Accordion.Control>
                 <Stack spacing={0}>
-                    <Text size={20} fw={300}>{prog.id} урок</Text>
-                    <Title size={28} fw={500}>{prog.name}</Title>
+                    <Text>{prog.id} урок</Text>
+                    <Title className={styles.titleSmall}>{prog.name}</Title>
                 </Stack>
             </Accordion.Control>
             <Accordion.Panel className={styles.content}>
-                <Text size={20}>Содержание:</Text>
+                <Text>Содержание:</Text>
                 <List className={styles.listItems}>
                     {prog.content.map(element => <List.Item>{element}</List.Item>)}
                 </List>

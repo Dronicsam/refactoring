@@ -2,10 +2,31 @@
     background-color: white;
     border-radius: 1em;
 }
+
 .content {
     padding: 1%;
+    font-size: 20px;
+    @media screen and (max-width: 768px){
+        font-size: 16px;
+    }
 }
+
 .listItems {
     margin-left: 1%;
-    font-size: 20px;
+}
+
+.titleSmall {
+    font-size: 28px;
+    font-weight: 500;
+    @media screen and (max-width: 768px){
+        font-size: 20px;
+
+    }
+}
+
+.title {
+    font-size: 34px;
+    @media screen and (max-width: 768px) {
+        font-size: 28px;
+    }
 }

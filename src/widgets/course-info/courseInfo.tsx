@@ -13,33 +13,36 @@ interface СourseProps {
 export const CourseInfo = ({duration, lectures, tests, description, skills} : СourseProps) => (
     <Stack className={styles.container}>
         <Flex className={styles.container}>
-            <Flex className={styles.containerInfo} gap={30} align='center'>
+            <Flex className={styles.containerInfo} align='center' >
                 <Stack spacing={0}>
-                    <Text size='20px'>Длительность</Text>
-                    <Text size={32} fw={300}>{duration}</Text>
+                    <Text className={styles.textSmall}>Длительность</Text>
+                    <Text className={styles.textBig}>{duration}</Text>
                 </Stack>
+
                 <Flex align="center" >
                     <div className={styles.divider}/>
-                <Stack spacing={0} className={styles.cell}>
-                    <Text size={20}>Лекций</Text>
-                    <Text size={32} fw={300}>{lectures}</Text>
-                </Stack>
+                        <Stack spacing={0} className={styles.cell}>
+                            <Text className={styles.textSmall}>Лекций</Text>
+                            <Text className={styles.textBig}>{lectures}</Text>
+                        </Stack>
                     <div className={styles.divider}/>
                 </Flex>
-                <Stack spacing={0}>
-                    <Text size={20}>Тестовых заданий</Text>
-                    <Text size={32} fw={300}>{tests}</Text>
+
+                <Stack spacing={0} className={styles.cellTask}>
+                    <Text className={styles.textSmall}>Тестовых заданий</Text>
+                    <Text className={styles.textBig}>{tests}</Text>
                 </Stack>
-            <Button style={{backgroundColor: 'rgba(131, 205, 201, 0.5)', color: 'black', fontWeight: 400, width: '30%', height: '50px'}}>Получить доступ</Button>
+                
+            </Flex>
+            <Button className={styles.button}>Получить доступ</Button>
         </Flex>
 
-        </Flex>
         <Stack className={styles.container}>
-            <Title size='36px' fw={500}>Зачем нужен курс</Title>
-            <Text size='24px'>{description}</Text>
+            <Title className={styles.title}>Зачем нужен курс</Title>
+            <Text className={styles.description}>{description}</Text>
         </Stack>
         <Stack>
-            <Title size='36px' fw={500}>Получаемые навыки</Title>
+            <Title className={styles.title}>Получаемые навыки</Title>
             <Flex gap='20px'>
             {skills.map(skill => 
                 <Skill skill={skill}/>

@@ -1,3 +1,18 @@
 .courseMainInfo {
     margin-bottom: 2%;
+    width: 90%;
+    @media screen and (max-width: 768px)  {
+        width: 95%;
+    }
+}
+
+.titleText {
+    font-size: 48px;
+    @media screen and (max-width: 768px)  {
+        font-size: 36px;
+    }
+}
+
+.container {
+    width: 100%;
 }

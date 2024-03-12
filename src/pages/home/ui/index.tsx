@@ -2,9 +2,8 @@ import { Stack, Tabs, Text } from '@mantine/core'
 import { CompletedTab } from 'widgets/completed-list/ui'
 import { MainTab } from 'widgets/main-tab/ui'
 import { ProcessTab } from 'widgets/process-list/ui'
-import { Box, Center, Stack, Text } from '@mantine/core'
 import { Link } from 'react-router-dom'
-import { HomeTabs } from 'widgets/home-tabs/ui'
+
 
 const Home = () => (
   <Stack>

@@ -1,11 +1,21 @@
 .container {
     margin-bottom: 3%;
     width: 100%;
+    display: flex;
+    justify-content: left;
+    
+    @media screen and (max-width: 768px) {
+        flex-direction: column;
+    }
 }
 
 .containerInfo {
     text-align: center;
-    width: 70%;
+    gap: 30px;
+    @media screen and (max-width: 768px) {
+        gap: 0;
+        width: 100%;
+    }
 }
 
 .divider {
@@ -13,4 +23,48 @@
     height: 40px;
     margin: 0px 20px;
     background-color: rgba(0, 0, 0, 1);
+}
+
+.textSmall {
+    font-size: 20px;
+    @media screen and (max-width: 768px) {
+        font-size: 16px;
+    }
+}
+
+.textBig {
+    font-size: 32px ;
+    @media screen and (max-width: 768px) {
+        font-size: 20px
+    }
+}
+
+.title {
+    font-size: 36px;
+    @media screen and (max-width: 768px) {      
+        font-size: 28px;
+    }
+}
+
+.description {
+    font-size: 24px;
+    @media screen and (max-width: 768px) {
+        font-size: 18px;
+    }
+}
+
+.button {
+    background-color: rgba(131, 205, 201, 0.5);
+        color: black;
+        font-weight: 400; 
+        width: 30%;      
+        margin-top: 20px;
+    @media screen and (max-width: 768px) {
+        width: 150px;
+    }
+}
+
+.cellTask {
+    width: 170px;
+    margin-right: 20px;
 }
