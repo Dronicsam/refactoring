@@ -8,25 +8,14 @@ p {
 }
 
 .container {
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 100px;
+  margin-top: 50px;
 }
 
 .user_container {
   width: fit-content;
-}
-
-.user_block {
-  background: #ffffff;
-  height: 215px;
-  width: 290px;
-  border-radius: 10px;
-  text-align: center;
-  padding: 25px;
-}
-
-.user_block_text {
-  display: block;
-  margin: auto;
-  width: 80%;
 }
 
 .button_block {

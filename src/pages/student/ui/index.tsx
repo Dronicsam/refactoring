@@ -1,6 +1,8 @@
 import { Button, Stack } from '@mantine/core'
+import { ChevronDown } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
-import { Usericon } from 'shared/iconpack/usericon'
+import { MiniCard, ProcessCard } from 'entities/course/ui'
+import { Card } from 'entities/course/user/ui'
 import styles from './style/style.module.css'
 
 const Student = () => {
@@ -12,12 +14,7 @@ const Student = () => {
   return (
     <Stack className={styles.container}>
       <div className={styles.user_container}>
-        <div className={styles.user_block}>
-          <Usericon />
-          <div style={{ width: '100%' }}>
-            <p className={styles.user_block_text}>{tempName}</p>
-          </div>
-        </div>
+        <Card tempNameProp={tempName} />
         <div className={styles.button_block}>
           <Button
             className={styles.button}
@@ -26,6 +23,55 @@ const Student = () => {
           >
             Найти курс
           </Button>
+        </div>
+      </div>
+      <div>
+        <div>
+          <Button
+            variant="transparent"
+            rightIcon={<ChevronDown />}
+            onClick={() => console.log('123')}
+          >
+            В процессе
+          </Button>
+          <div style={{display:"flex", flexDirection:"column", rowGap:"20px", width:"100%"}}>
+            <ProcessCard id={1} title="1" author="1" progress={11} />
+            <ProcessCard id={2} title="2" author="2" progress={21} />
+            <ProcessCard id={3} title="3" author="3" progress={31} />
+          </div>
+        </div>
+        <div>
+          <Button
+            variant="transparent"
+            rightIcon={<ChevronDown />}
+            onClick={() => console.log('123')}
+          >
+            В процессе
+          </Button>
+          <MiniCard
+            id={1}
+            key={1}
+            title="123"
+            author="123123"
+            duration="123"
+            count={1}
+          />
+          <MiniCard
+            id={2}
+            key={2}
+            title="123"
+            author="123123"
+            duration="123"
+            count={2}
+          />
+          <MiniCard
+            id={3}
+            key={3}
+            title="123"
+            author="123123"
+            duration="123"
+            count={3}
+          />
         </div>
       </div>
     </Stack>
