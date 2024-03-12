@@ -1,3 +1,1 @@
-export const LongCard = () => (
-        <>long card</>
-    )
+export const LongCard = () => <>long card</>

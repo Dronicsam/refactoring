@@ -7,5 +7,6 @@ export const ROUTES = {
   teacher: '/teacher',
   scenarios: '/scen',
   create: '/create',
+  topic: '/topic',
   error404: '/*',
 }

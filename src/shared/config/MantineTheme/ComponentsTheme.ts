@@ -8,5 +8,5 @@ export const ThemedComponents: MantineThemeComponents = {
   Button: ButtonTheme,
   PasswordInput: PasswordInputTheme,
   TextInput: TextInputTheme,
-  ActionIcon: ActionIconTheme
+  ActionIcon: ActionIconTheme,
 }

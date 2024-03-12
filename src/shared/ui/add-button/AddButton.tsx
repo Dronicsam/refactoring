@@ -1,10 +1,47 @@
-import { ActionIcon, Tooltip } from '@mantine/core'
+import { Button, ButtonProps, Flex } from '@mantine/core'
 import { Plus } from 'shared/iconpack'
 
-export const AddButton = ({ onClick }: { onClick: () => void }) => (
-  <Tooltip label="Добавить реплику">
-    <ActionIcon size="xl" radius="xl" variant="outline" onClick={onClick}>
+interface AddButtonProps {
+  variant?: 'small' | 'default'
+  onClick: () => void
+  label: string
+  props?: ButtonProps
+}
+
+export const AddButton = ({
+  variant = 'default',
+  onClick,
+  label,
+}: AddButtonProps) => (
+  <Button
+    variant="transparent"
+    onClick={onClick}
+    w={210}
+    sx={{
+      fontSize: variant === 'default' ? '18px' : '12px',
+      '.mantine-Button-inner': {
+        justifyContent: 'start',
+        marginLeft: 10,
+      },
+      '&:hover': {
+        fontSize: variant === 'default' ? '21px' : '14px',
+        transition: '0.3s',
+      },
+    }}
+  >
+    <Flex
+      sx={{
+        borderRadius: 30,
+        border: '1px solid #C1B8B8',
+        width: variant === 'default' ? 30 : 20,
+        height: variant === 'default' ? 30 : 20,
+        alignItems: 'center',
+        padding: 5,
+        marginRight: variant === 'default' ? 10 : 5,
+      }}
+    >
       <Plus />
-    </ActionIcon>
-  </Tooltip>
+    </Flex>
+    {label}
+  </Button>
 )

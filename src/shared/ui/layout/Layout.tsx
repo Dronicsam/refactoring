@@ -1,35 +1,18 @@
-import { ActionIcon, Box, Button, Flex } from '@mantine/core'
-import { ChevronDown, UserCircle2 } from 'lucide-react'
+import { Box } from '@mantine/core'
 import { ReactNode } from 'react'
-import { useMatch, useNavigate } from 'react-router-dom'
-import { ROUTES } from 'shared/lib'
 
-export const Layout = ({ children }: { children: ReactNode }) => {
-  const isLogin = useMatch(ROUTES.login)
-  const navigate = useNavigate()
-  return (
+export const Layout = ({ children }: { children: ReactNode }) => (
   <Box
     sx={{
-      width: '100%',
-      height: '100%',
+      width: '100vw',
+      height: '100vh',
       flexGrow: 1,
-      overflow: 'hidden',
-      justifyContent: 'center',
-      alignItems: 'flex-start',
+      overflowY: 'scroll',
       boxSizing: 'border-box',
-      padding: '24px 60px',
+      padding: '24px 60px 100px 60px',
+      position: 'relative',
     }}
   >
-    {!isLogin && <Flex justify="space-between">
-        <Flex gap="lg">
-           <Button variant="header" rightIcon={<ChevronDown />} onClick={() => navigate(ROUTES.courses)}> Все курсы </Button>
-            <Button variant="header" onClick={() => navigate(ROUTES.create)}>Создать курс</Button> 
-        </Flex>
-        <ActionIcon onClick={() => navigate(ROUTES.student)}>
-            <UserCircle2 size={16} />
-        </ActionIcon>
-      </Flex>
-    }
     {children}
   </Box>
-)}
+)

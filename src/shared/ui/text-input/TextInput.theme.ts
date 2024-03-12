@@ -12,6 +12,17 @@ export const TextInputTheme: ThemeComponent = {
       },
     }
   },
+  variants: {
+    transparent: () => ({
+      wrapper: {
+        background: 'red',
+      },
+      input: {
+        background: 'red',
+        border: '1px solid white',
+      },
+    }),
+  },
   defaultProps: {
     icon: null,
   },

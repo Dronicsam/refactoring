@@ -1,38 +1,38 @@
 import { ThemeComponent } from '../../config'
 
 export const ButtonTheme: ThemeComponent = {
-  
   variants: {
     green: ({ colors }) => ({
-      root: { 
+      root: {
         backgroundColor: colors.green[3],
         borderRadius: 10,
         '&:hover': {
-          backgroundColor: colors.green[2]
-        }
+          backgroundColor: colors.green[2],
+        },
       },
       label: {
-        color: 'black'
-      }
+        color: 'black',
+      },
     }),
     gray: ({ colors }) => ({
       root: {
         backgroundColor: colors.gray[3],
         borderRadius: 10,
         '&:hover': {
-          backroundColor: colors.gray[2]
+          backroundColor: colors.gray[2],
         },
       },
       label: {
-        color: 'black'
-      }
+        color: 'black',
+      },
     }),
-    header: () => ({
+    transparent: () => ({
       root: {
         backgroundColor: 'inherit',
         fontSize: 20,
-        fontWeight: 300
-      }
-    })
+        fontWeight: 300,
+        padding: 0,
+      },
+    }),
   },
 }
