@@ -1,15 +1,32 @@
-import { Stack } from '@mantine/core'
+import { Button, Stack } from '@mantine/core'
+import { useNavigate } from 'react-router-dom'
 import { Usericon } from 'shared/iconpack/usericon'
 import styles from './style/style.module.css'
 
 const Student = () => {
-  console.log('123')
+  const navigate = useNavigate()
+  const handleRedirect = (path: string) => {
+    navigate(path)
+  }
   const tempName = 'Гатауллова Алина Альфредовна'
   return (
     <Stack className={styles.container}>
-      <div className={styles.user_block}>
-        <Usericon />
-        <p className={styles.user_block_text}>{tempName}</p>
+      <div className={styles.user_container}>
+        <div className={styles.user_block}>
+          <Usericon />
+          <div style={{ width: '100%' }}>
+            <p className={styles.user_block_text}>{tempName}</p>
+          </div>
+        </div>
+        <div className={styles.button_block}>
+          <Button
+            className={styles.button}
+            onClick={() => handleRedirect('/catalog')}
+            variant="green"
+          >
+            Найти курс
+          </Button>
+        </div>
       </div>
     </Stack>
   )
