@@ -1,12 +1,12 @@
 import { FileButton, FileInput, Input, Stack } from '@mantine/core'
 import { useState } from 'react'
-import { TopicEditor } from 'features/topic-editor/ui'
+// import { TopicEditor } from 'features/topic-editor/ui'
 import { AddButton } from 'shared/ui'
 
 export const TopicContent = () => {
   const [name, setInput] = useState('')
   const [files, setFiles] = useState<File[]>([])
-  console.log(files)
+  // console.log(files)
   return (
     <Stack>
       <Input value={name} onChange={(e) => setInput(e.target.value)} />
@@ -16,7 +16,7 @@ export const TopicContent = () => {
           key={file.name}
           value={file}
           onChange={(e) => {
-            console.log(e)
+            // console.log(e)
             setFiles(
               files.map((item) =>
                 item.name === file.name ? e : item
