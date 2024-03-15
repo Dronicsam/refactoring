@@ -1,5 +1,10 @@
-import { Stack } from '@mantine/core'
+import { Center, Stack } from '@mantine/core'
+import { LoginForm } from 'features/login-form/ui'
 
-const Login = () => <Stack>login</Stack>
+const Login = () => (
+  <Center h="100%">
+    <LoginForm />
+  </Center>
+)
 
 export default Login

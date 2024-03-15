@@ -20,21 +20,22 @@ export const globalStyles: GlobalStylesOptions = ({ colors }) => ({
     width: '14px',
   },
   '::-webkit-scrollbar-thumb': {
-    background: colors.gray[2],
+    background: colors.gray[5],
     borderRadius: '999px',
     border: '4px solid rgba(0, 0, 0, 0)',
     backgroundClip: 'padding-box',
   },
   '::-webkit-scrollbar-thumb:hover': {
-    background: colors.gray[1],
+    background: colors.gray[6],
     border: '4px solid rgba(0, 0, 0, 0)',
     backgroundClip: 'padding-box',
   },
   '::-webkit-scrollbar-corner': {
-    background: colors.gray[1],
+    background: colors.gray[6],
   },
   'input:-webkit-autofill': {
-    '-webkit-box-shadow': `0 0 0 1000px ${colors.gray[1]} inset`,
-    '-webkit-text-fill-color': colors.gray[4],
+    '-webkit-box-shadow': `0 0 0 100px white inset`,
+    '-webkit-text-fill-color': 'black',
+    border: 0,
   },
 })

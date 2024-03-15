@@ -36,7 +36,7 @@ export const MiniCard = ({
           transition: '0.3s',
         },
       }}
-      onClick={() => navigate(`${ROUTES.courses}/:${id}`)}
+      onClick={() => navigate(`${ROUTES.courses}/${id}`)}
     >
       <Text fz={24} color={variant === 'complete' ? 'gray.1' : 'black'}>
         {title}

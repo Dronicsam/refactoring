@@ -26,5 +26,11 @@ export interface CourseState extends Course {
   deleteLesson: (id: number) => void
   addTopic: (id: number, topic: Topic) => void
   changeLessonName: (id: number, name: string) => void
-  changeTopicName?: (lessongId: number, topicId: number, name: string) => void
+  changeTopic: (
+    lessonId: number,
+    topicId: number,
+    name: string,
+    content: any,
+    files: any[]
+  ) => void
 }

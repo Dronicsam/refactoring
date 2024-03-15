@@ -15,6 +15,7 @@ const Student = lazy(() => import('pages/student/ui'))
 const Teacher = lazy(() => import('pages/teacher/ui'))
 const Topic = lazy(() => import('pages/topic/ui'))
 const Login = lazy(() => import('pages/login/ui'))
+const Register = lazy(() => import('pages/register/ui'))
 const Error404 = lazy(() => import('pages/error-404/ui'))
 
 export default function App() {
@@ -25,6 +26,7 @@ export default function App() {
           <Header />
           <Routes>
             <Route path={ROUTES.login} element={<Login />} />
+            <Route path={ROUTES.register} element={<Register />} />
             <Route path={ROUTES.home} element={<Home />} />
             <Route path={`${ROUTES.courses}/:courseId`} element={<Course />} />
             <Route path={ROUTES.courses} element={<Courses />} />

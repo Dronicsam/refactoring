@@ -59,7 +59,7 @@ export const CourseContent = () => {
                   {lesson.topics.map((topic) => (
                     <List.Item key={topic.id}>
                       <Text
-                        onClick={() => navigate(`${ROUTES.topic}/:${topic.id}`)}
+                        onClick={() => navigate(`${ROUTES.topic}/${topic.id}`)}
                         sx={{
                           textDecoration: 'underline',
                           textDecorationColor: 'white',
