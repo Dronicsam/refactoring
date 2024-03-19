@@ -1,7 +1,6 @@
 import { Button, Stack } from '@mantine/core'
-import { ChevronDown } from 'lucide-react'
-import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { CourseInfo } from 'widgets/course-info'
 import { Card } from 'entities/course/user/ui'
 import styles from './style/style.module.css'
 
@@ -36,7 +35,7 @@ const Teacher = () => {
               width: '100%',
             }}
           >
-          
+            <CourseInfo duration="1" lectures="1" tests="1" description="1" skills={[""]}/>
           </div>
         </div>
       </div>
