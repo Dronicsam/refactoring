@@ -60,7 +60,7 @@ const Student = () => {
           <div
             style={{
               marginTop:"1vw",
-              marginBottom:"1vw",
+              marginBottom:"5vw",
               display: "grid",
               gridColumnGap:"1.5vw",
               gridTemplateColumns: 'auto auto auto',
