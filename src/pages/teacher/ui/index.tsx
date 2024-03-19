@@ -1,6 +1,6 @@
 import { Button, Stack } from '@mantine/core'
 import { useNavigate } from 'react-router-dom'
-import { CourseInfo } from 'widgets/course-info'
+import { CourseCard } from 'entities/course/ui/CourseCard'
 import { Card } from 'entities/course/user/ui'
 import styles from './style/style.module.css'
 
@@ -35,7 +35,7 @@ const Teacher = () => {
               width: '100%',
             }}
           >
-            <CourseInfo duration="1" lectures="1" tests="1" description="1" skills={[""]}/>
+            <CourseCard id={1} title="1" duration={1} lectures={1} students={1} tests={1}/>
           </div>
         </div>
       </div>
