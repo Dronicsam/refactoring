@@ -12,9 +12,9 @@ const Teacher = () => {
     navigate(path)
   }
   const tempName = 'Гатауллова Алина Альфредовна'
-  
+
   const [proccessOpen, setProccessOpen] = useState(true)
-  
+
   return (
     <Stack className={styles.container}>
       <div className={styles.user_container}>
@@ -33,24 +33,43 @@ const Teacher = () => {
         <div>
           <Button
             variant="transparent"
-            rightIcon={<ChevronDown style={{rotate: proccessOpen ? "180deg" : "0deg"}} />}
+            rightIcon={
+              <ChevronDown
+                style={{ rotate: proccessOpen ? '180deg' : '0deg' }}
+              />
+            }
             onClick={() => setProccessOpen(!proccessOpen)}
           >
             В процессе
           </Button>
           <div
             style={{
-              display: proccessOpen ? 'flex' : "none",
-              marginTop:"1.5vw",
+              display: proccessOpen ? 'flex' : 'none',
+              marginTop: '1.5vw',
               // marginBottom: "1.5vw",
               flexDirection: 'column',
               rowGap: '20px',
               width: '100%',
             }}
           >
-            <ProcessCard id={1} title="Электротехника" author="Абрамов К. О." progress={11} />
-            <ProcessCard id={2} title="Безопасность жизнедеятельности" author="Курочкин Т. В." progress={21} />
-            <ProcessCard id={3} title="Взлом Пентагонов омереконских" author="Обама Б. И." progress={31} />
+            <ProcessCard
+              id={1}
+              title="Электротехника"
+              author="Абрамов К. О."
+              progress={11}
+            />
+            <ProcessCard
+              id={2}
+              title="Безопасность жизнедеятельности"
+              author="Курочкин Т. В."
+              progress={21}
+            />
+            <ProcessCard
+              id={3}
+              title="Взлом Пентагонов омереконских"
+              author="Обама Б. И."
+              progress={31}
+            />
           </div>
         </div>
       </div>

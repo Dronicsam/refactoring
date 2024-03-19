@@ -13,6 +13,9 @@ p {
   grid-template-columns: 30% 60%;
   column-gap: 100px;
   margin-top: 50px;
+  @media screen and (max-width: 920px) {
+    grid-auto-columns: auto;
+  }
 }
 
 .user_container {

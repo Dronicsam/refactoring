@@ -7,9 +7,7 @@ export const Footer = () => {
   const navigate = useNavigate()
   return (
     <Flex className={styles.container}>
-      <Text
-        className={styles.logo}
-        onClick={() => navigate(ROUTES.home)}>
+      <Text className={styles.logo} onClick={() => navigate(ROUTES.home)}>
         e-learning
       </Text>
       <Flex className={styles.content}>

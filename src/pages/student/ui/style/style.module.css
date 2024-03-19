@@ -12,19 +12,38 @@ p {
   grid-template-columns: 30% 60%;
   column-gap: 100px;
   margin-top: 50px;
+  margin-bottom: 5vw;
+  @media screen and (max-width: 960px) {
+    width: fit-content;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    display: flex;
+    flex-direction: column;
+    margin: auto auto 20vw;
+  }
 }
 
 .user_container {
   width: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @media screen and (max-width: 960px) {
+    margin-top: 5vh;
+    align-self: center;
+  }
 }
 
 .button_block {
-  display: block;
   margin-top: 25px;
-  width: 100%;
+  /*width: 100%;*/
+  justify-content: center;
+  display: flex;
 }
 
 .button {
+  margin-top: 10px;
   width: 100%;
   height: 45px;
   font-family: 'Montserrat', sans-serif;
@@ -32,4 +51,25 @@ p {
   font-weight: 400;
   font-style: normal;
   font-size: 22px;
+}
+
+.inProcess {
+  @media screen and (max-width: 960px) {
+    margin-top: 5vh;
+  }
+}
+
+.completed {
+  @media screen and (max-width: 960px) {
+    margin-top: 5vh;
+  }
+}
+
+.miniContainer {
+  column-gap: 1vw;
+  row-gap: 1vw;
+  grid-template-columns: repeat(3, auto);
+  @media screen and (max-width: 425px) {
+    grid-template-columns: repeat(2, auto);
+  }
 }

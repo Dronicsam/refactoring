@@ -1,6 +1,7 @@
 import { Flex, Stack, Text } from '@mantine/core'
 import { useNavigate } from 'react-router-dom'
 import { ROUTES } from 'shared/lib'
+import styles from './style.module.css'
 
 interface MiniCardProps {
   id: number
@@ -22,20 +23,7 @@ export const MiniCard = ({
   const navigate = useNavigate()
   return (
     <Stack
-      sx={{
-        background: 'white',
-        padding: 15,
-        borderRadius: 10,
-        minHeight: 240,
-        width: "17vw",
-        alignItems: 'center',
-        textAlign: 'center',
-        cursor: 'pointer',
-        '&:hover': {
-          background: '#f7f7f7',
-          transition: '0.3s',
-        },
-      }}
+      className={styles.container}
       onClick={() => navigate(`${ROUTES.courses}/${id}`)}
     >
       <Text fz={24} color={variant === 'complete' ? 'gray.1' : 'black'}>
