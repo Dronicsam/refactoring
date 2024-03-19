@@ -8,6 +8,7 @@ p {
 }
 
 .container {
+  height: 100vh;
   display: grid;
   grid-template-columns: 30% 60%;
   column-gap: 100px;

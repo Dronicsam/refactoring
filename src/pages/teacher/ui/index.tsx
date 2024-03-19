@@ -1,7 +1,7 @@
 import { Button, Stack } from '@mantine/core'
 import { ChevronDown } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
-import { MiniCard, ProcessCard } from 'entities/course/ui'
+import { ProcessCard } from 'entities/course/ui'
 import { Card } from 'entities/course/user/ui'
 import styles from './style/style.module.css'
 
