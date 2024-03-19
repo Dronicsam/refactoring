@@ -1,74 +1,63 @@
 import { Button, Stack } from '@mantine/core'
-import { ChevronDown } from 'lucide-react'
-import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { ProcessCard } from 'entities/course/ui'
+import { CourseCard } from "entities/course/ui"
 import { Card } from 'entities/course/user/ui'
 import styles from './style/style.module.css'
 
 const Teacher = () => {
   const navigate = useNavigate()
+  
   const handleRedirect = (path: string) => {
     navigate(path)
   }
   const tempName = 'Гатауллова Алина Альфредовна'
-
-  const [proccessOpen, setProccessOpen] = useState(true)
-
   return (
     <Stack className={styles.container}>
       <div className={styles.user_container}>
         <Card tempNameProp={tempName} />
-        <div className={styles.button_block}>
-          <Button
-            className={styles.button}
-            onClick={() => handleRedirect('/catalog')}
-            variant="green"
-          >
-            Найти курс
-          </Button>
-        </div>
+        <Button
+          className={styles.button}
+          onClick={() => handleRedirect('/catalog')}
+          variant="green"
+        >
+          Найти курс
+        </Button>
       </div>
       <div>
-        <div>
-          <Button
-            variant="transparent"
-            rightIcon={
-              <ChevronDown
-                style={{ rotate: proccessOpen ? '180deg' : '0deg' }}
-              />
-            }
-            onClick={() => setProccessOpen(!proccessOpen)}
-          >
-            В процессе
-          </Button>
+        <div className={styles.inProcess}>
+          <h1>Ваши курсы</h1>
           <div
             style={{
-              display: proccessOpen ? 'flex' : 'none',
               marginTop: '1.5vw',
-              // marginBottom: "1.5vw",
+              marginBottom: '1.5vw',
               flexDirection: 'column',
               rowGap: '20px',
               width: '100%',
             }}
           >
-            <ProcessCard
+            <CourseCard
               id={1}
               title="Электротехника"
-              author="Абрамов К. О."
-              progress={11}
+              students={32}
+              testTasks={1}
+              timeLengh={1}
+              lectures={1}
             />
-            <ProcessCard
+            <CourseCard
               id={2}
-              title="Безопасность жизнедеятельности"
-              author="Курочкин Т. В."
-              progress={21}
+              title="Электротехника"
+              students={32}
+              testTasks={1}
+              timeLengh={1}
+              lectures={1}
             />
-            <ProcessCard
+            <CourseCard
               id={3}
-              title="Взлом Пентагонов омереконских"
-              author="Обама Б. И."
-              progress={31}
+              title="Электротехника"
+              students={32}
+              testTasks={1}
+              timeLengh={1}
+              lectures={1}
             />
           </div>
         </div>

@@ -35,13 +35,6 @@ p {
   }
 }
 
-.button_block {
-  margin-top: 25px;
-  /*width: 100%;*/
-  justify-content: center;
-  display: flex;
-}
-
 .button {
   margin-top: 10px;
   width: 100%;
