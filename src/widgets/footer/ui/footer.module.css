@@ -4,7 +4,7 @@
     color: white;
     width: 100%;
     background: #6b6d6d;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     height: 70;
     font-size: 18px;    
