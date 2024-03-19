@@ -10,6 +10,7 @@ export const Layout = ({ children }: { children: ReactNode }) => (
       flexGrow: 1,
       overflowY: 'scroll',
       boxSizing: 'border-box',
+      padding: '24px 60px 24px 60px',
       position: 'relative',
     }}
   >

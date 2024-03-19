@@ -1,7 +1,7 @@
 import { $api } from '.'
 
 export function login(loginValue: string, password: string) {
-  return $api.post('/login', {
+  return $api.post('/user/login', {
     login: loginValue,
     password,
     remember_me: true,
@@ -9,13 +9,14 @@ export function login(loginValue: string, password: string) {
 }
 
 export function logout() {
-  return $api.delete('/login').then(() => localStorage.removeItem('refresh'))
-  // .catch((e) => console.error(e))
+  return $api
+    .delete('/user/login')
+    .then(() => localStorage.removeItem('refresh'))
 }
 
 export function refresh(token: string) {
   return $api.post(
-    '/login/refresh',
+    '/user/refresh',
     { refresh: token },
     { withCredentials: true }
   )
