@@ -1,5 +1,6 @@
 import { Button, Stack } from '@mantine/core'
 import { ChevronDown } from 'lucide-react'
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { MiniCard, ProcessCard } from 'entities/course/ui'
 import { Card } from 'entities/course/user/ui'
@@ -7,6 +8,10 @@ import styles from './style/style.module.css'
 
 const Student = () => {
   const navigate = useNavigate()
+  
+  const [proccessOpen, setProccessOpen] = useState(true)
+  const [miniOpen, setMiniOpen] = useState(true)
+  
   const handleRedirect = (path: string) => {
     navigate(path)
   }
@@ -29,14 +34,14 @@ const Student = () => {
         <div>
           <Button
             variant="transparent"
-            rightIcon={<ChevronDown />}
-            onClick={() => console.log('123')}
+            rightIcon={<ChevronDown style={{rotate: proccessOpen ? "180deg" : "0deg"}} />}
+            onClick={()=>setProccessOpen(!proccessOpen)}
           >
             В процессе
           </Button>
           <div
             style={{
-              display: 'flex',
+              display: proccessOpen ? 'flex' : "none",
               marginTop:"1.5vw",
               marginBottom: "1.5vw",
               flexDirection: 'column',
@@ -52,8 +57,8 @@ const Student = () => {
         <div>
           <Button
             variant="transparent"
-            rightIcon={<ChevronDown />}
-            onClick={() => console.log('123')}
+            rightIcon={<ChevronDown style={{rotate: miniOpen ? "180deg" : "0deg"}} />}
+            onClick={() => setMiniOpen(!miniOpen)}
           >
             В процессе
           </Button>
@@ -61,7 +66,7 @@ const Student = () => {
             style={{
               marginTop:"1vw",
               marginBottom:"5vw",
-              display: "grid",
+              display: miniOpen ? "grid" : "none",
               gridColumnGap:"1.5vw",
               gridTemplateColumns: 'auto auto auto',
             }}
