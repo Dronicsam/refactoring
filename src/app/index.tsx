@@ -5,6 +5,7 @@ import { Header } from 'widgets/header/ui'
 import { ROUTES } from 'shared/lib'
 import { Layout } from 'shared/ui'
 import { MantineProvider, RouterProvider } from './lib'
+import { Stack } from '@mantine/core'
 
 const Home = lazy(() => import('pages/home/ui'))
 const Course = lazy(() => import('pages/course/ui/course'))
@@ -39,7 +40,7 @@ export default function App() {
             <Route path={ROUTES.error404} element={<Error404 />} />
           </Routes>
         </Layout>
-        <Footer />
+        <Footer/>
       </MantineProvider>
     </RouterProvider>
   )

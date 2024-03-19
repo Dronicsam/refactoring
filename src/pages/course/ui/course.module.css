@@ -15,4 +15,15 @@
 
 .container {
   width: 100%;
+
+  @media screen and (max-width: 575px) {
+    font-size: 36px;
+    margin-bottom: 25%;
+  }
+
+  @media screen and (min-width: 576px) and (max-width: 768px) {
+    font-size: 36px;
+    margin-bottom: 10%;
+  }
+
 }
