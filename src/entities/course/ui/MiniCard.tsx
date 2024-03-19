@@ -27,7 +27,7 @@ export const MiniCard = ({
         padding: 15,
         borderRadius: 10,
         minHeight: 240,
-        width: 260,
+        width: "17vw",
         alignItems: 'center',
         textAlign: 'center',
         cursor: 'pointer',

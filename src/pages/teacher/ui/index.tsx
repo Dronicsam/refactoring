@@ -26,7 +26,7 @@ const Teacher = () => {
         </div>
       </div>
       <div>
-        <h1 style={{marginTop:"0", fontWeight:"medium"}}></h1>
+        <h1 style={{ marginTop: '0', fontWeight: 'medium' }}></h1>
         <ProcessCard id={1} title="1" author="1" progress={11} />
         <ProcessCard id={2} title="2" author="2" progress={21} />
         <ProcessCard id={3} title="3" author="3" progress={31} />
