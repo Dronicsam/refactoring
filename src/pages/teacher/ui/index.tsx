@@ -6,7 +6,7 @@ import styles from './style/style.module.css'
 
 const Teacher = () => {
   const navigate = useNavigate()
-  
+
   const handleRedirect = (path: string) => {
     navigate(path)
   }
@@ -17,10 +17,10 @@ const Teacher = () => {
         <Card tempNameProp={tempName} />
         <Button
           className={styles.button}
-          onClick={() => handleRedirect('/catalog')}
+          onClick={() => handleRedirect('/create')}
           variant="green"
         >
-          Найти курс
+          Создать курс
         </Button>
       </div>
       <div>
@@ -35,7 +35,14 @@ const Teacher = () => {
               width: '100%',
             }}
           >
-            <CourseCard id={1} title="1" duration={1} lectures={1} students={1} tests={1}/>
+            <CourseCard
+              id={1}
+              title="Введение в ИТ"
+              duration="10 часов"
+              lectures={1}
+              students="32 студента"
+              tests={1}
+            />
           </div>
         </div>
       </div>

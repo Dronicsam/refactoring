@@ -16,13 +16,19 @@
     gap: 0;
     width: 100%;
   }
+  @media screen and (max-width: 480px) {
+    flex-direction: column;
+  }
 }
 
 .divider {
   width: 1px;
   height: 40px;
-  margin: 0px 20px;
+  margin: 0 20px;
   background-color: rgba(0, 0, 0, 1);
+  @media screen and (max-width: 480px) {
+    display: none;
+  }
 }
 
 .textSmall {
@@ -46,25 +52,11 @@
   }
 }
 
-.description {
-  font-size: 24px;
-  @media screen and (max-width: 768px) {
-    font-size: 18px;
+.cell {
+  @media screen and (max-width: 480px) {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px
   }
-}
-
-.button {
-  background-color: rgba(131, 205, 201, 0.5);
-  color: black;
-  font-weight: 400;
-  width: 30%;
-  margin-top: 20px;
-  @media screen and (max-width: 768px) {
-    width: 150px;
-  }
-}
-
-.cellTask {
-  width: 170px;
-  margin-right: 20px;
 }
