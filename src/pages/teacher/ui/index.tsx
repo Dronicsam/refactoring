@@ -1,6 +1,7 @@
 import { Button, Stack } from '@mantine/core'
+import { ChevronDown } from 'lucide-react'
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { CourseCard } from "entities/course/ui"
 import { Card } from 'entities/course/user/ui'
 import styles from './style/style.module.css'
 
@@ -35,30 +36,7 @@ const Teacher = () => {
               width: '100%',
             }}
           >
-            <CourseCard
-              id={1}
-              title="Электротехника"
-              students={32}
-              testTasks={1}
-              timeLengh={1}
-              lectures={1}
-            />
-            <CourseCard
-              id={2}
-              title="Электротехника"
-              students={32}
-              testTasks={1}
-              timeLengh={1}
-              lectures={1}
-            />
-            <CourseCard
-              id={3}
-              title="Электротехника"
-              students={32}
-              testTasks={1}
-              timeLengh={1}
-              lectures={1}
-            />
+          
           </div>
         </div>
       </div>
