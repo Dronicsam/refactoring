@@ -6,7 +6,6 @@ interface AddButtonProps {
   variant?: 'small' | 'default'
   onClick: () => void
   label: string
-  // props?: ButtonProps
 }
 
 export const AddButton = ({

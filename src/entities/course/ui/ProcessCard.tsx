@@ -25,7 +25,7 @@ export const ProcessCard = ({ id, title, author, progress }: LongCardProps) => {
         },
         width: '100%',
       }}
-      onClick={() => navigate(`${ROUTES.courses}/:${id}`)}
+      onClick={() => navigate(`${ROUTES.courses}/${id}`)}
     >
       <Text fz={25}>{title}</Text>
       <Text fz={16} fw={100}>

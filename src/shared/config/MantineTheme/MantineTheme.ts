@@ -18,6 +18,5 @@ export const OurMantineTheme: MantineThemeOverride = {
   },
   colors: {
     green: ['#1B7E78', '#4DBBB5', '#83CDC9', '#83CDC980'],
-    gray: ['#4B4F4FCC', '#898989', '#D9D9D9', '#C7C7C780', '#DADADA'],
   },
 }

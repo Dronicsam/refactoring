@@ -12,6 +12,7 @@ export const ButtonTheme: ThemeComponent = {
       },
       label: {
         color: 'black',
+        fontWeight: 300,
       },
     }),
     gray: ({ colors }) => ({
@@ -24,6 +25,7 @@ export const ButtonTheme: ThemeComponent = {
       },
       label: {
         color: 'black',
+        fontWeight: 300,
       },
     }),
     transparent: () => ({
