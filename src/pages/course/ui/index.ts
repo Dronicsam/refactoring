@@ -1,1 +1,0 @@
-export { Course } from './course'

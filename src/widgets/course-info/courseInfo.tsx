@@ -1,6 +1,7 @@
 import { Flex, Stack, Button, Text, Title } from '@mantine/core'
 import { Skill } from 'entities/skill'
 import styles from './courseInfo.module.css'
+import { TagCard } from 'entities/course/ui'
 
 interface СourseProps {
   duration: string
@@ -50,7 +51,7 @@ export const CourseInfo = ({
       <Title className={styles.title}>Получаемые навыки</Title>
       <Flex gap="20px">
         {skills.map((skill) => (
-          <Skill skill={skill} />
+          <TagCard tag={skill} />
         ))}
       </Flex>
     </Stack>

@@ -5,10 +5,9 @@ import { Header } from 'widgets/header/ui'
 import { ROUTES } from 'shared/lib'
 import { Layout } from 'shared/ui'
 import { MantineProvider, RouterProvider } from './lib'
-import { Stack } from '@mantine/core'
 
 const Home = lazy(() => import('pages/home/ui'))
-const Course = lazy(() => import('pages/course/ui/course'))
+const Course = lazy(() => import('pages/course/ui'))
 const Courses = lazy(() => import('pages/courses/ui'))
 const CreateCourse = lazy(() => import('pages/create-course/ui'))
 const Learning = lazy(() => import('pages/learning/ui'))
@@ -29,7 +28,7 @@ export default function App() {
             <Route path={ROUTES.login} element={<Login />} />
             <Route path={ROUTES.register} element={<Register />} />
             <Route path={ROUTES.home} element={<Home />} />
-            <Route path={`${ROUTES.courses}/:1`} element={<Course />} />
+            <Route path={`${ROUTES.courses}/:courseId`} element={<Course />} />
             <Route path={ROUTES.courses} element={<Courses />} />
             <Route path={ROUTES.create} element={<CreateCourse />} />
             <Route path={ROUTES.student} element={<Student />} />
@@ -42,7 +41,7 @@ export default function App() {
             <Route path={ROUTES.error404} element={<Error404 />} />
           </Routes>
         </Layout>
-        <Footer/>
+        <Footer />
       </MantineProvider>
     </RouterProvider>
   )
