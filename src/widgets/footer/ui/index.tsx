@@ -1,6 +1,7 @@
-import { Flex, Text } from '@mantine/core'
+import { Box, Flex, Text } from '@mantine/core'
 import { useNavigate } from 'react-router-dom'
 import { ROUTES } from 'shared/lib'
+import { Logo } from 'shared/ui'
 
 export const Footer = () => {
   const navigate = useNavigate()
@@ -19,18 +20,12 @@ export const Footer = () => {
         opacity: 0.9,
       }}
     >
-      <Text
+      <Box
         onClick={() => navigate(ROUTES.home)}
-        sx={{
-          fontFamily: 'Major Mono Display',
-          fontWeight: 400,
-          color: '#83cdc9',
-          fontSize: 36,
-          cursor: 'pointer',
-        }}
-      >
-        e-learning
-      </Text>
+        sx={{cursor: 'pointer'}}
+        >
+        <Logo />
+      </Box>
       <Text>О проекте</Text>
       <Text>Что мы предлагаем</Text>
       <Text>Каталог</Text>

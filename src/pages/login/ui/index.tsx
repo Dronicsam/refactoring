@@ -1,10 +1,12 @@
 import { Center, Stack } from '@mantine/core'
 import { LoginForm } from 'features/login-form/ui'
+import { Logo } from 'shared/ui'
 
 const Login = () => (
-  <Center h="100%">
+  <Stack h="100%" align="center" justify='center'>
+    <Logo />
     <LoginForm />
-  </Center>
+  </Stack>
 )
 
 export default Login
