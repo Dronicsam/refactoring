@@ -1,23 +1,37 @@
-import { Flex, Text } from '@mantine/core'
+import { Box, Flex, Text } from '@mantine/core'
 import { useNavigate } from 'react-router-dom'
 import { ROUTES } from 'shared/lib'
-import styles from './footer.module.css'
+import { Logo } from 'shared/ui'
 
 export const Footer = () => {
   const navigate = useNavigate()
   return (
-    <Flex className={styles.container}>
-      <Text className={styles.logo} onClick={() => navigate(ROUTES.home)}>
-        e-learning
-      </Text>
-      <Flex className={styles.content}>
-        <Text className={styles.text}>О проекте</Text>
-        <Text className={styles.textSuggestion}>Что мы предлагаем</Text>
-        <Text className={styles.text}>Каталог</Text>
-        <Text className={styles.text}>Помощь</Text>
-        <Text className={styles.text}>Контакты</Text>
-        <Text className={styles.text}>Руководство</Text>
-      </Flex>
+    <Flex
+      sx={{
+        justifyContent: 'space-around',
+        alignItems: 'center',
+        color: 'white',
+        width: '100%',
+        background: '#6b6d6d',
+        position: 'absolute',
+        bottom: 0,
+        height: 70,
+        fontSize: 18,
+        opacity: 0.9,
+      }}
+    >
+      <Box
+        onClick={() => navigate(ROUTES.home)}
+        sx={{cursor: 'pointer'}}
+        >
+        <Logo />
+      </Box>
+      <Text>О проекте</Text>
+      <Text>Что мы предлагаем</Text>
+      <Text>Каталог</Text>
+      <Text>Помощь</Text>
+      <Text>Контакты</Text>
+      <Text>Руководство</Text>
     </Flex>
   )
 }

@@ -1,5 +1,5 @@
 import { ActionIcon, Flex, Stack, Text } from '@mantine/core'
-import { ArrowLeft, ArrowRight } from 'lucide-react'
+import { ArrowLeft } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 import { TopicContent } from 'widgets/topic-content/ui'
 

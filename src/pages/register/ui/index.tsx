@@ -1,10 +1,12 @@
-import { Center } from '@mantine/core'
+import { Center, Stack } from '@mantine/core'
 import { RegisterForm } from 'features/register-form/ui'
+import { Logo } from 'shared/ui'
 
 const Register = () => (
-  <Center h="100%">
+  <Stack h="100%" align="center" justify='center'>
+    <Logo />
     <RegisterForm />
-  </Center>
+  </Stack>
 )
 
 export default Register
