@@ -28,7 +28,6 @@ export const TopicContent = () => {
   const [name, setName] = useState(selectedTopic?.name)
 
   const [files, setFiles] = useState<File[]>([])
-
   const onSubmit = () => {
     changeTopic(
       Number(selectedLesson?.id),
@@ -39,7 +38,6 @@ export const TopicContent = () => {
     )
     navigate(-1)
   }
-
   return (
     <Stack>
       <Input
@@ -53,7 +51,7 @@ export const TopicContent = () => {
           key={file.name}
           value={file}
           onChange={(e) => {
-            console.log(e)
+            // console.log(e)
             setFiles(
               files.map((item) =>
                 item.name === file.name ? e : item

@@ -1,0 +1,8 @@
+.skill {
+  background-color: rgba(131, 205, 201, 0.5);
+  border-radius: 10px;
+  padding: 10px 20px;
+  @media screen and (max-width: 768px) {
+    padding: 5px 10px;
+  }
+}
