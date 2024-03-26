@@ -1,12 +1,12 @@
 import { ActionIcon, Button, Flex, Menu } from '@mantine/core'
 import { ChevronDown, UserCircle2 } from 'lucide-react'
 import { useState } from 'react'
-import { useMatch, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { ROUTES } from 'shared/lib'
 
 export const Header = () => {
   const [opened, setOpened] = useState(false)
-  const isLogin = useMatch(ROUTES.login)
+  // const isLogin = useMatch(ROUTES.login)
   const navigate = useNavigate()
   const courses = ['course1', 'course2', 'course3']
 

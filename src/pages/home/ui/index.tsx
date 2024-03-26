@@ -1,4 +1,5 @@
 import { Stack, Tabs, Text } from '@mantine/core'
+import { Link } from 'react-router-dom'
 import { CompletedTab } from 'widgets/completed-list/ui'
 import { MainTab } from 'widgets/main-tab/ui'
 import { ProcessTab } from 'widgets/process-list/ui'
@@ -8,6 +9,9 @@ const Home = () => (
     <Stack>
       <Text>Добро пожаловать</Text>
       <Text>Платформа E-LEARNING</Text>
+      <Text>Добро пожаловать</Text>
+      <Text>Платформа E-LEARNING</Text>
+      <Link to="/courses/:1">Курс</Link>
     </Stack>
     <Tabs defaultValue="main" color="green.1">
       <Tabs.List grow position="center" mb={30}>
