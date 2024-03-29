@@ -1,0 +1,62 @@
+.container {
+  margin-bottom: 3%;
+  width: 100%;
+  display: flex;
+  justify-content: left;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+  }
+}
+
+.containerInfo {
+  text-align: center;
+  gap: 30px;
+  @media screen and (max-width: 768px) {
+    gap: 0;
+    width: 100%;
+  }
+  @media screen and (max-width: 480px) {
+    flex-direction: column;
+  }
+}
+
+.divider {
+  width: 1px;
+  height: 40px;
+  margin: 0 20px;
+  background-color: rgba(0, 0, 0, 1);
+  @media screen and (max-width: 480px) {
+    display: none;
+  }
+}
+
+.textSmall {
+  font-size: 20px;
+  @media screen and (max-width: 768px) {
+    font-size: 16px;
+  }
+}
+
+.textBig {
+  font-size: 32px;
+  @media screen and (max-width: 768px) {
+    font-size: 20px;
+  }
+}
+
+.title {
+  font-size: 36px;
+  @media screen and (max-width: 768px) {
+    font-size: 28px;
+  }
+}
+
+.cell {
+  @media screen and (max-width: 480px) {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+  }
+}

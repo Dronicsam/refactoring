@@ -5,6 +5,7 @@ import { Header } from 'widgets/header/ui'
 import { ROUTES } from 'shared/lib'
 import { Layout } from 'shared/ui'
 import { MantineProvider, RouterProvider } from './lib'
+import { Stack } from '@mantine/core'
 
 const Home = lazy(() => import('pages/home/ui'))
 const Course = lazy(() => import('pages/course/ui'))
@@ -22,26 +23,31 @@ export default function App() {
   return (
     <RouterProvider>
       <MantineProvider>
-        <Layout>
-          <Header />
-          <Routes>
-            <Route path={ROUTES.login} element={<Login />} />
-            <Route path={ROUTES.register} element={<Register />} />
-            <Route path={ROUTES.home} element={<Home />} />
-            <Route path={`${ROUTES.courses}/:courseId`} element={<Course />} />
-            <Route path={ROUTES.courses} element={<Courses />} />
-            <Route path={ROUTES.create} element={<CreateCourse />} />
-            <Route path={ROUTES.student} element={<Student />} />
-            <Route path={ROUTES.teacher} element={<Teacher />} />
-            <Route
-              path={`${ROUTES.learning}/:courseId`}
-              element={<Learning />}
-            />
-            <Route path={`${ROUTES.topic}/:topicId`} element={<Topic />} />
-            <Route path={ROUTES.error404} element={<Error404 />} />
-          </Routes>
-        </Layout>
-        <Footer />
+        <Stack h="100vh">
+          <Layout>
+            <Header />
+            <Routes>
+              <Route path={ROUTES.login} element={<Login />} />
+              <Route path={ROUTES.register} element={<Register />} />
+              <Route path={ROUTES.home} element={<Home />} />
+              <Route
+                path={`${ROUTES.courses}/:courseId`}
+                element={<Course />}
+              />
+              <Route path={ROUTES.courses} element={<Courses />} />
+              <Route path={ROUTES.create} element={<CreateCourse />} />
+              <Route path={ROUTES.student} element={<Student />} />
+              <Route path={ROUTES.teacher} element={<Teacher />} />
+              <Route
+                path={`${ROUTES.learning}/:courseId`}
+                element={<Learning />}
+              />
+              <Route path={`${ROUTES.topic}/:topicId`} element={<Topic />} />
+              <Route path={ROUTES.error404} element={<Error404 />} />
+            </Routes>
+          </Layout>
+          <Footer />
+        </Stack>
       </MantineProvider>
     </RouterProvider>
   )

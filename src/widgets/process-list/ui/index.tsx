@@ -1,7 +1,7 @@
 import { Stack } from '@mantine/core'
 import { ProcessCard } from 'entities/course/ui'
 
-export const ProcessTab = () => {
+export const ProcessList = () => {
   const courses = [
     {
       id: 0,

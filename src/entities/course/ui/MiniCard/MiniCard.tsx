@@ -46,7 +46,7 @@ export const MiniCard = ({
       </Text>
       <Flex
         justify={variant === 'complete' ? 'center' : 'space-between'}
-        w="50%"
+        w="60%"
       >
         {variant === 'complete' ? (
           <Text color="green.0" fz={24}>

@@ -1,0 +1,14 @@
+.container {
+  background: white;
+  padding: 15;
+  border-radius: 10px;
+  min-height: 240;
+  /*width: 17vw;*/
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  :hover {
+    background: #f7f7f7;
+    transition: 0.3s;
+  }
+}
