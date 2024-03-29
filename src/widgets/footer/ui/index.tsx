@@ -13,17 +13,12 @@ export const Footer = () => {
         color: 'white',
         width: '100%',
         background: '#6b6d6d',
-        position: 'absolute',
-        bottom: 0,
-        height: 70,
+        minHeight: 70,
         fontSize: 18,
         opacity: 0.9,
       }}
     >
-      <Box
-        onClick={() => navigate(ROUTES.home)}
-        sx={{cursor: 'pointer'}}
-        >
+      <Box onClick={() => navigate(ROUTES.home)} sx={{ cursor: 'pointer' }}>
         <Logo />
       </Box>
       <Text>О проекте</Text>

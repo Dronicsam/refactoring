@@ -1,25 +1,21 @@
-import { Button, Stack } from '@mantine/core'
-import { ChevronDown } from 'lucide-react'
-import { useState } from 'react'
+import { Accordion, Button, Stack } from '@mantine/core'
 import { useNavigate } from 'react-router-dom'
-import { MiniCard, ProcessCard } from 'entities/course/ui'
-import { Card } from 'entities/course/user/ui'
 import styles from './style/style.module.css'
+import { CompletedList } from 'widgets/completed-list/ui'
+import { ProcessList } from 'widgets/process-list/ui'
+import { UserCard } from 'entities/profile/ui'
 
 const Student = () => {
   const navigate = useNavigate()
 
-  const [proccessOpen, setProccessOpen] = useState(true)
-  const [miniOpen, setMiniOpen] = useState(true)
-
   const handleRedirect = (path: string) => {
     navigate(path)
   }
-  const tempName = 'Гатауллова Алина Альфредовна'
+
   return (
     <Stack className={styles.container}>
       <div className={styles.user_container}>
-        <Card tempNameProp={tempName} />
+        <UserCard />
         <Button
           className={styles.button}
           onClick={() => handleRedirect('/catalog')}
@@ -28,94 +24,45 @@ const Student = () => {
           Найти курс
         </Button>
       </div>
-      <div>
-        <div className={styles.inProcess}>
-          <Button
-            variant="transparent"
-            rightIcon={
-              <ChevronDown
-                style={{ rotate: proccessOpen ? '180deg' : '0deg' }}
-              />
-            }
-            onClick={() => setProccessOpen(!proccessOpen)}
-          >
-            В процессе
-          </Button>
-          <div
-            style={{
-              display: proccessOpen ? 'flex' : 'none',
-              marginTop: '1.5vw',
-              marginBottom: '1.5vw',
-              flexDirection: 'column',
-              rowGap: '20px',
-              width: '100%',
+      <Accordion
+        multiple
+        sx={{
+          '&:hover': {
+            background: 'inherit',
+          },
+        }}
+      >
+        <Accordion.Item value="process">
+          <Accordion.Control
+            sx={{
+              fontSize: 24,
+              '&:hover': {
+                background: 'inherit',
+              },
             }}
           >
-            <ProcessCard
-              id={1}
-              title="Электротехника"
-              author="Абрамов К. О."
-              progress={11}
-            />
-            <ProcessCard
-              id={2}
-              title="Безопасность жизнедеятельности"
-              author="Курочкин Т. В."
-              progress={21}
-            />
-            <ProcessCard
-              id={3}
-              title="Взлом Пентагонов омереконских"
-              author="Обама Б. И."
-              progress={31}
-            />
-          </div>
-        </div>
-        <div className={styles.completed}>
-          <Button
-            variant="transparent"
-            rightIcon={
-              <ChevronDown style={{ rotate: miniOpen ? '180deg' : '0deg' }} />
-            }
-            onClick={() => setMiniOpen(!miniOpen)}
+            Ваши курсы
+          </Accordion.Control>
+          <Accordion.Panel>
+            <ProcessList />
+          </Accordion.Panel>
+        </Accordion.Item>
+        <Accordion.Item value="completed">
+          <Accordion.Control
+            sx={{
+              fontSize: 24,
+              '&:hover': {
+                background: 'inherit',
+              },
+            }}
           >
             Пройденные
-          </Button>
-          <div
-            className={styles.miniContainer}
-            style={{
-              marginTop: '1vw',
-              marginBottom: '5vw',
-              display: miniOpen ? 'grid' : 'none',
-            }}
-          >
-            <MiniCard
-              id={1}
-              key={1}
-              title="123"
-              author="123123"
-              duration="123"
-              count={1}
-            />
-            <MiniCard
-              id={2}
-              key={2}
-              title="123"
-              author="123123"
-              duration="123"
-              count={2}
-            />
-            <MiniCard
-              id={3}
-              key={3}
-              title="123"
-              author="123123"
-              duration="123"
-              count={3}
-            />
-          </div>
-        </div>
-      </div>
+          </Accordion.Control>
+          <Accordion.Panel>
+            <CompletedList />
+          </Accordion.Panel>
+        </Accordion.Item>
+      </Accordion>
     </Stack>
   )
 }

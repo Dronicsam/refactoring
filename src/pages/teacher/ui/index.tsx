@@ -1,8 +1,8 @@
-import { Button, Stack } from '@mantine/core'
+import { Accordion, Button, Stack } from '@mantine/core'
 import { useNavigate } from 'react-router-dom'
-import { CourseCard } from 'entities/course/ui/CourseCard'
-import { Card } from 'entities/course/user/ui'
 import styles from './style/style.module.css'
+import { UserCard } from 'entities/profile/ui'
+import { SelfCourse } from 'entities/course/ui'
 
 const Teacher = () => {
   const navigate = useNavigate()
@@ -10,11 +10,11 @@ const Teacher = () => {
   const handleRedirect = (path: string) => {
     navigate(path)
   }
-  const tempName = 'Гатауллова Алина Альфредовна'
+
   return (
     <Stack className={styles.container}>
       <div className={styles.user_container}>
-        <Card tempNameProp={tempName} />
+        <UserCard />
         <Button
           className={styles.button}
           onClick={() => handleRedirect('/create')}
@@ -23,19 +23,28 @@ const Teacher = () => {
           Создать курс
         </Button>
       </div>
-      <div>
-        <div className={styles.inProcess}>
-          <h1>Ваши курсы</h1>
-          <div
-            style={{
-              marginTop: '1.5vw',
-              marginBottom: '1.5vw',
-              flexDirection: 'column',
-              rowGap: '20px',
-              width: '100%',
+
+      <Accordion
+        multiple
+        sx={{
+          '&:hover': {
+            background: 'inherit',
+          },
+        }}
+      >
+        <Accordion.Item value="courses">
+          <Accordion.Control
+            sx={{
+              fontSize: 24,
+              '&:hover': {
+                background: 'inherit',
+              },
             }}
           >
-            <CourseCard
+            Ваши курсы
+          </Accordion.Control>
+          <Accordion.Panel>
+            <SelfCourse
               id={1}
               title="Введение в ИТ"
               duration="10 часов"
@@ -43,9 +52,9 @@ const Teacher = () => {
               students="32 студента"
               tests={1}
             />
-          </div>
-        </div>
-      </div>
+          </Accordion.Panel>
+        </Accordion.Item>
+      </Accordion>
     </Stack>
   )
 }

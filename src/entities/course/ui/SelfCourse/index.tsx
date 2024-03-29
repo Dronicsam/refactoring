@@ -12,7 +12,7 @@ interface LongCardProps {
   tests: number
 }
 
-export const CourseCard = ({
+export const SelfCourse = ({
   id,
   title,
   students,
@@ -25,7 +25,7 @@ export const CourseCard = ({
     <Stack
       sx={{
         background: 'white',
-        padding: 25,
+        padding: 15,
         borderRadius: 10,
         gap: 5,
         cursor: 'pointer',
@@ -38,12 +38,12 @@ export const CourseCard = ({
       onClick={() => navigate(`${ROUTES.courses}/${id}`)}
     >
       <div style={{ display: 'flex', alignItems: 'center' }}>
-        <Text fz={25}>{title}</Text>
+        <Text fz={24}>{title}</Text>
         <Text style={{ color: '#BABABA', marginLeft: '2vw' }} fz={16} fw={100}>
           {students}
         </Text>
         <Text
-          fz={25}
+          fz={24}
           style={{ color: '#BABABA', marginLeft: 'auto', rotate: '90deg' }}
         >
           ...

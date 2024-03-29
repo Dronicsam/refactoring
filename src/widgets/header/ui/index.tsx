@@ -1,12 +1,11 @@
 import { ActionIcon, Button, Flex, Menu } from '@mantine/core'
-import { ChevronDown, UserCircle2 } from 'lucide-react'
+import { ChevronDown, GraduationCap, UserCircle2 } from 'lucide-react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ROUTES } from 'shared/lib'
 
 export const Header = () => {
   const [opened, setOpened] = useState(false)
-  // const isLogin = useMatch(ROUTES.login)
   const navigate = useNavigate()
   const courses = ['course1', 'course2', 'course3']
 
@@ -63,7 +62,9 @@ export const Header = () => {
           gap: 25,
         }}
       >
-        <ActionIcon onClick={() => navigate(ROUTES.teacher)} />
+        <ActionIcon onClick={() => navigate(ROUTES.teacher)}>
+          <GraduationCap />
+        </ActionIcon>
         <ActionIcon onClick={() => navigate(ROUTES.student)}>
           <UserCircle2 />
         </ActionIcon>

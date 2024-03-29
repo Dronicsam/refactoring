@@ -8,6 +8,8 @@ export const globalStyles: GlobalStylesOptions = ({ colors }) => ({
     maxWidth: '100vw',
     minHeight: '100vh',
     margin: 0,
+    overflowY: 'auto',
+    overflowX: 'hidden',
     backgroundColor: '#EBE5E5',
   },
   '#root': {
@@ -17,7 +19,7 @@ export const globalStyles: GlobalStylesOptions = ({ colors }) => ({
     position: 'relative',
   },
   '::-webkit-scrollbar': {
-    width: '14px',
+    width: '0px',
   },
   '::-webkit-scrollbar-thumb': {
     background: colors.gray[5],

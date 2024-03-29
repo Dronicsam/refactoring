@@ -1,7 +1,7 @@
 import { Flex } from '@mantine/core'
 import { MiniCard } from 'entities/course/ui'
 
-export const CompletedTab = () => {
+export const CompletedList = () => {
   const courses = [
     {
       id: 0,
