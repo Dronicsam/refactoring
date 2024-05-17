@@ -11,7 +11,8 @@ import {
 } from '@mantine/core'
 import { DateInput, DateValue } from '@mantine/dates'
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { signup } from 'entities/user/api'
 import { ROUTES } from 'shared/lib'
 
 export const RegisterForm = () => {
@@ -19,17 +20,33 @@ export const RegisterForm = () => {
   const [email, setEmail] = useState('')
   const [fullname, setFullname] = useState('')
   const [phone, setPhone] = useState('')
-  const [date, setDate] = useState<DateValue>(null)
+  const [date, setDate] = useState<Date>(new Date())
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
   const [gender, setGender] = useState('')
 
-  const onSubmit = () => {}
+  const navigate = useNavigate()
+
+  const onSubmit = () => {
+    const name = fullname.split(' ')
+    signup(
+      username,
+      email,
+      password,
+      name[1],
+      name[0],
+      name[2],
+      gender,
+      phone,
+      date,
+      false
+    ).then(() => navigate(ROUTES.login))
+  }
   return (
     <Stack spacing={10} w="600px">
       <Flex gap={10} w="100%" justify="center">
         <TextInput
-          label="Имя"
+          label="Имя аккаунта"
           w="350px"
           withAsterisk
           value={username}
@@ -75,7 +92,7 @@ export const RegisterForm = () => {
           label="Дата рождения"
           w="350px"
           value={date}
-          onChange={(e) => setDate(e)}
+          onChange={(e) => setDate(e as Date)}
           lang="ru"
         />
       </Flex>
@@ -95,6 +112,9 @@ export const RegisterForm = () => {
         {password !== confirmPassword && (
           <Text color="red">Пароли должны совпадать!</Text>
         )}
+        {password.length < 8 && (
+          <Text color="red">Пароль должен быть длиннее 8 символов.</Text>
+        )}
         <Button
           variant="green"
           w="200px"
@@ -105,7 +125,8 @@ export const RegisterForm = () => {
             !fullname ||
             !email ||
             !password ||
-            password !== confirmPassword
+            password !== confirmPassword ||
+            password.length < 8
           }
         >
           Зарегистрироваться

@@ -1,11 +1,11 @@
+import { Stack } from '@mantine/core'
 import { lazy } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { Footer } from 'widgets/footer/ui'
 import { Header } from 'widgets/header/ui'
 import { ROUTES } from 'shared/lib'
 import { Layout } from 'shared/ui'
-import { MantineProvider, RouterProvider } from './lib'
-import { Stack } from '@mantine/core'
+import { MantineProvider, RouterProvider, WithRefresh } from './lib'
 
 const Home = lazy(() => import('pages/home/ui'))
 const Course = lazy(() => import('pages/course/ui'))
@@ -29,20 +29,70 @@ export default function App() {
             <Routes>
               <Route path={ROUTES.login} element={<Login />} />
               <Route path={ROUTES.register} element={<Register />} />
-              <Route path={ROUTES.home} element={<Home />} />
+              <Route
+                path={ROUTES.home}
+                element={
+                  <WithRefresh>
+                    <Home />
+                  </WithRefresh>
+                }
+              />
               <Route
                 path={`${ROUTES.courses}/:courseId`}
-                element={<Course />}
+                element={
+                  <WithRefresh>
+                    <Course />
+                  </WithRefresh>
+                }
               />
-              <Route path={ROUTES.courses} element={<Courses />} />
-              <Route path={ROUTES.create} element={<CreateCourse />} />
-              <Route path={ROUTES.student} element={<Student />} />
-              <Route path={ROUTES.teacher} element={<Teacher />} />
+              <Route
+                path={ROUTES.courses}
+                element={
+                  <WithRefresh>
+                    <Courses />
+                  </WithRefresh>
+                }
+              />
+              <Route
+                path={ROUTES.create}
+                element={
+                  <WithRefresh>
+                    <CreateCourse />
+                  </WithRefresh>
+                }
+              />
+              <Route
+                path={ROUTES.student}
+                element={
+                  <WithRefresh>
+                    <Student />
+                  </WithRefresh>
+                }
+              />
+              <Route
+                path={ROUTES.teacher}
+                element={
+                  <WithRefresh>
+                    <Teacher />
+                  </WithRefresh>
+                }
+              />
               <Route
                 path={`${ROUTES.learning}/:courseId`}
-                element={<Learning />}
+                element={
+                  <WithRefresh>
+                    <Learning />
+                  </WithRefresh>
+                }
               />
-              <Route path={`${ROUTES.topic}/:topicId`} element={<Topic />} />
+              <Route
+                path={`${ROUTES.topic}/:topicId`}
+                element={
+                  <WithRefresh>
+                    <Topic />
+                  </WithRefresh>
+                }
+              />
               <Route path={ROUTES.error404} element={<Error404 />} />
             </Routes>
           </Layout>

@@ -1,25 +1,18 @@
-import {
-  Stack,
-  Button,
-  Input,
-  PasswordInput,
-  Center,
-  Text,
-} from '@mantine/core'
+import { Stack, Button, Input, PasswordInput, Text } from '@mantine/core'
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { login as loginUser } from 'shared/api/auth'
+import { login } from 'entities/user/api'
 import { ROUTES } from 'shared/lib'
 
 export const LoginForm = () => {
-  const [login, setLogin] = useState('')
+  const [loginValue, setLoginValue] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState(false)
 
   const navigate = useNavigate()
 
   const onSubmit = () => {
-    loginUser(login, password)
+    login(loginValue, password, true)
       .then(({ data }) => {
         localStorage.setItem('refresh', data.refresh)
         navigate(ROUTES.home)
@@ -30,10 +23,10 @@ export const LoginForm = () => {
   return (
     <Stack spacing={10} w="500px">
       <Input
-        placeholder="Логин"
+        placeholder="Почта"
         size="md"
-        value={login}
-        onChange={(e) => setLogin(e.target.value)}
+        value={loginValue}
+        onChange={(e) => setLoginValue(e.target.value)}
       />
       <PasswordInput
         placeholder="Пароль"

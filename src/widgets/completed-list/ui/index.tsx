@@ -1,44 +1,19 @@
 import { Flex } from '@mantine/core'
+import { FetchedCourse } from 'entities/course/types'
 import { MiniCard } from 'entities/course/ui'
 
-export const CompletedList = () => {
-  const courses = [
-    {
-      id: 0,
-      title: 'titti tletitletitlel etitletitle',
-      author: 'authorauth',
-      duration: '52',
-      count: 12,
-      progress: 50,
-    },
-    {
-      id: 1,
-      title: 'titletit letit titlet itletit lele',
-      author: 'authorauth',
-      duration: '52',
-      count: 12,
-      progress: 50,
-    },
-    {
-      id: 2,
-      title: 'titletit letitltit sletitl etitlee',
-      author: 'authorauth',
-      duration: '52',
-      count: 12,
-      progress: 50,
-    },
-  ]
-  return (
-    <Flex wrap="wrap" gap={30}>
-      {courses.map(({ id, title, author }) => (
-        <MiniCard
-          key={id}
-          id={id}
-          title={title}
-          author={author}
-          variant="complete"
-        />
-      ))}
-    </Flex>
-  )
-}
+export const CompletedList = ({ data }: { data: FetchedCourse[] }) => (
+  <Flex wrap="wrap" gap={30}>
+    {data && data.length
+      ? data.map(({ course_id, name, owner_name }) => (
+          <MiniCard
+            key={course_id}
+            id={course_id}
+            title={name}
+            author={owner_name}
+            variant="complete"
+          />
+        ))
+      : 'Пока нет завершённых курсов'}
+  </Flex>
+)

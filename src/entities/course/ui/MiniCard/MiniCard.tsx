@@ -6,7 +6,7 @@ interface MiniCardProps {
   id: number
   title: string
   author: string
-  duration?: string
+  duration?: number
   count?: number
   variant?: 'complete' | 'default'
 }

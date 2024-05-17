@@ -29,7 +29,7 @@ export const useCourseStore = create<CourseState>((set) => ({
           : lesson
       ),
     })),
-  changeTopic: (lessonId, topicId, name, content, files) =>
+  changeTopic: (lessonId, topicId, name, content, files, tests) =>
     set((state) => ({
       lessons: state.lessons.map((lesson) =>
         lesson.id === lessonId
@@ -37,7 +37,7 @@ export const useCourseStore = create<CourseState>((set) => ({
               ...lesson,
               topics: lesson.topics.map((topic) =>
                 topicId === topic.id
-                  ? { ...topic, name, content, files }
+                  ? { ...topic, name, content, files, tests }
                   : topic
               ),
             }

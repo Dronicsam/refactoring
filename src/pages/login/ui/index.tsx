@@ -1,4 +1,4 @@
-import { Center, Stack } from '@mantine/core'
+import { Stack } from '@mantine/core'
 import { LoginForm } from 'features/login-form/ui'
 import { Logo } from 'shared/ui'
 

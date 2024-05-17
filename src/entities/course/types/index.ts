@@ -1,8 +1,16 @@
+export interface Test {
+  question: string
+  type: string
+  options: { [key: string]: string }[]
+  answer: string
+}
+
 interface Topic {
   id: number
   name: string
   content: any
   files: any[]
+  tests?: Test[]
 }
 
 interface Lesson {
@@ -31,6 +39,18 @@ export interface CourseState extends Course {
     topicId: number,
     name: string,
     content: any,
-    files: any[]
+    files: any[],
+    tests?: Test[]
   ) => void
+}
+
+export interface FetchedCourse {
+  course_id: number
+  name: string
+  description?: string
+  owner_name: string
+  total_duration?: number
+  sections?: number
+  students_on_course?: number
+  finished?: boolean
 }

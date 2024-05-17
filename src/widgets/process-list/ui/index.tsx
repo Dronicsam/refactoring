@@ -1,44 +1,21 @@
-import { Stack } from '@mantine/core'
+import { Stack, Text } from '@mantine/core'
+import { FetchedCourse } from 'entities/course/types'
 import { ProcessCard } from 'entities/course/ui'
 
-export const ProcessList = () => {
-  const courses = [
-    {
-      id: 0,
-      title: 'titti tletitletitlel etitletitle',
-      author: 'authorauth',
-      duration: '52',
-      count: 12,
-      progress: 50,
-    },
-    {
-      id: 1,
-      title: 'titletit letit titlet itletit lele',
-      author: 'authorauth',
-      duration: '52',
-      count: 12,
-      progress: 50,
-    },
-    {
-      id: 2,
-      title: 'titletit letitltit sletitl etitlee',
-      author: 'authorauth',
-      duration: '52',
-      count: 12,
-      progress: 50,
-    },
-  ]
-  return (
-    <Stack>
-      {courses.map(({ id, title, author, progress }) => (
+export const ProcessList = ({ data }: { data: FetchedCourse[] }) => (
+  <Stack>
+    {data.length ? (
+      data.map(({ course_id, name, owner_name }) => (
         <ProcessCard
-          id={id}
-          key={id}
-          title={title}
-          author={author}
-          progress={progress}
+          id={course_id}
+          key={course_id}
+          title={name}
+          author={owner_name}
+          progress={50}
         />
-      ))}
-    </Stack>
-  )
-}
+      ))
+    ) : (
+      <Text fz={16}>Пока нет проходимых курсов.</Text>
+    )}
+  </Stack>
+)

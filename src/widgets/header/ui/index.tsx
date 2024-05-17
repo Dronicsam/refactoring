@@ -68,6 +68,9 @@ export const Header = () => {
         <ActionIcon onClick={() => navigate(ROUTES.student)}>
           <UserCircle2 />
         </ActionIcon>
+        <Button variant="green" onClick={() => navigate(ROUTES.login)}>
+          Авторизоваться
+        </Button>
       </Flex>
     </Flex>
   )

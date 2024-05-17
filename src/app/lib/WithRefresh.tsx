@@ -1,6 +1,6 @@
 import { Fragment, ReactNode, useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
-import { refresh } from 'shared/api/auth'
+import { refresh } from 'entities/user/api'
 import { ROUTES } from 'shared/lib'
 import { Loading } from 'shared/ui'
 

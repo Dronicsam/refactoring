@@ -1,16 +1,33 @@
 import { Accordion, Button, Stack } from '@mantine/core'
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import styles from './style/style.module.css'
 import { CompletedList } from 'widgets/completed-list/ui'
 import { ProcessList } from 'widgets/process-list/ui'
-import { UserCard } from 'entities/profile/ui'
+import { getJoinedCourses, getRecentCourses } from 'entities/course/api'
+import { FetchedCourse } from 'entities/course/types'
+import { UserCard } from 'entities/user/ui'
+import styles from './style/style.module.css'
 
 const Student = () => {
+  const [completedCourses, setCompletedCourses] = useState<FetchedCourse[]>([])
+  const [joinedCourses, setJoinedCourses] = useState<FetchedCourse[]>([])
+  const [page, setPage] = useState(0)
   const navigate = useNavigate()
 
   const handleRedirect = (path: string) => {
     navigate(path)
   }
+
+  // todo сделать пагинацию
+  useEffect(() => {
+    getJoinedCourses(page, 20).then(({ data }) => setJoinedCourses(data))
+  }, [page])
+
+  useEffect(() => {
+    getRecentCourses().then(({ data: fetchedData }) =>
+      setCompletedCourses(fetchedData)
+    )
+  }, [])
 
   return (
     <Stack className={styles.container}>
@@ -44,7 +61,7 @@ const Student = () => {
             Ваши курсы
           </Accordion.Control>
           <Accordion.Panel>
-            <ProcessList />
+            <ProcessList data={joinedCourses} />
           </Accordion.Panel>
         </Accordion.Item>
         <Accordion.Item value="completed">
@@ -59,7 +76,7 @@ const Student = () => {
             Пройденные
           </Accordion.Control>
           <Accordion.Panel>
-            <CompletedList />
+            <CompletedList data={completedCourses} />
           </Accordion.Panel>
         </Accordion.Item>
       </Accordion>

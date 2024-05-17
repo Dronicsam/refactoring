@@ -1,6 +1,6 @@
 import { UserCircle2 } from 'lucide-react'
-import styles from './style.module.css'
 import { useProfileStore } from '../../model/useProfileStore'
+import styles from './style.module.css'
 
 export const UserCard = () => {
   const username = useProfileStore((state) => state.username)

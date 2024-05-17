@@ -1,8 +1,8 @@
 import { Accordion, Button, Stack } from '@mantine/core'
 import { useNavigate } from 'react-router-dom'
-import styles from './style/style.module.css'
-import { UserCard } from 'entities/profile/ui'
 import { SelfCourse } from 'entities/course/ui'
+import { UserCard } from 'entities/user/ui'
+import styles from './style/style.module.css'
 
 const Teacher = () => {
   const navigate = useNavigate()
