@@ -29,70 +29,20 @@ export default function App() {
             <Routes>
               <Route path={ROUTES.login} element={<Login />} />
               <Route path={ROUTES.register} element={<Register />} />
-              <Route
-                path={ROUTES.home}
-                element={
-                  <WithRefresh>
-                    <Home />
-                  </WithRefresh>
-                }
-              />
+              <Route path={ROUTES.home} element={<Home />} />
               <Route
                 path={`${ROUTES.courses}/:courseId`}
-                element={
-                  <WithRefresh>
-                    <Course />
-                  </WithRefresh>
-                }
+                element={<Course />}
               />
-              <Route
-                path={ROUTES.courses}
-                element={
-                  <WithRefresh>
-                    <Courses />
-                  </WithRefresh>
-                }
-              />
-              <Route
-                path={ROUTES.create}
-                element={
-                  <WithRefresh>
-                    <CreateCourse />
-                  </WithRefresh>
-                }
-              />
-              <Route
-                path={ROUTES.student}
-                element={
-                  <WithRefresh>
-                    <Student />
-                  </WithRefresh>
-                }
-              />
-              <Route
-                path={ROUTES.teacher}
-                element={
-                  <WithRefresh>
-                    <Teacher />
-                  </WithRefresh>
-                }
-              />
+              <Route path={ROUTES.courses} element={<Courses />} />
+              <Route path={ROUTES.create} element={<CreateCourse />} />
+              <Route path={ROUTES.student} element={<Student />} />
+              <Route path={ROUTES.teacher} element={<Teacher />} />
               <Route
                 path={`${ROUTES.learning}/:courseId`}
-                element={
-                  <WithRefresh>
-                    <Learning />
-                  </WithRefresh>
-                }
+                element={<Learning />}
               />
-              <Route
-                path={`${ROUTES.topic}/:topicId`}
-                element={
-                  <WithRefresh>
-                    <Topic />
-                  </WithRefresh>
-                }
-              />
+              <Route path={`${ROUTES.topic}/:topicId`} element={<Topic />} />
               <Route path={ROUTES.error404} element={<Error404 />} />
             </Routes>
           </Layout>
