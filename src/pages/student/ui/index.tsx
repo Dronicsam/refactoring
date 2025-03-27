@@ -8,6 +8,30 @@ import { FetchedCourse } from 'entities/course/types'
 import { UserCard } from 'entities/user/ui'
 import styles from './style/style.module.css'
 
+const StudentAccordionItem = ({
+  value,
+  title,
+  children,
+}: {
+  value: string
+  title: string
+  children: React.ReactNode
+}) => (
+  <Accordion.Item value={value}>
+    <Accordion.Control
+      sx={{
+        fontSize: 24,
+        '&:hover': {
+          background: 'inherit',
+        },
+      }}
+    >
+      {title}
+    </Accordion.Control>
+    {children}
+  </Accordion.Item>
+)
+
 const Student = () => {
   const [completedCourses, setCompletedCourses] = useState<FetchedCourse[]>([])
   const [joinedCourses, setJoinedCourses] = useState<FetchedCourse[]>([])
@@ -49,36 +73,16 @@ const Student = () => {
           },
         }}
       >
-        <Accordion.Item value="process">
-          <Accordion.Control
-            sx={{
-              fontSize: 24,
-              '&:hover': {
-                background: 'inherit',
-              },
-            }}
-          >
-            Ваши курсы
-          </Accordion.Control>
+        <StudentAccordionItem value="process" title="Ваши курсы">
           <Accordion.Panel>
             <ProcessList data={joinedCourses} />
           </Accordion.Panel>
-        </Accordion.Item>
-        <Accordion.Item value="completed">
-          <Accordion.Control
-            sx={{
-              fontSize: 24,
-              '&:hover': {
-                background: 'inherit',
-              },
-            }}
-          >
-            Пройденные
-          </Accordion.Control>
+        </StudentAccordionItem>
+        <StudentAccordionItem value="completed" title="Пройденные">
           <Accordion.Panel>
             <CompletedList data={completedCourses} />
           </Accordion.Panel>
-        </Accordion.Item>
+        </StudentAccordionItem>
       </Accordion>
     </Stack>
   )

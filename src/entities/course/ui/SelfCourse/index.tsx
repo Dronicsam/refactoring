@@ -12,6 +12,21 @@ interface LongCardProps {
   tests: number
 }
 
+const CourseInfoCell = ({
+  label,
+  value,
+  className,
+}: {
+  label: string
+  value: string
+  className?: string
+}) => (
+  <Stack spacing={0} className={className}>
+    <Text className={styles.textSmall}>{label}</Text>
+    <Text className={styles.textBig}>{value}</Text>
+  </Stack>
+)
+
 export const SelfCourse = ({
   id,
   title,
@@ -51,24 +66,13 @@ export const SelfCourse = ({
       </div>
       <Stack spacing={0}>
         <Flex className={styles.containerInfo} align="center">
-          <Stack spacing={0} className={styles.cell}>
-            <Text className={styles.textSmall}>Длительность</Text>
-            <Text className={styles.textBig}>{duration}</Text>
-          </Stack>
-
+          <CourseInfoCell label="Длительность" value={duration} />
           <Flex align="center">
             <div className={styles.divider} />
-            <Stack spacing={0} className={styles.cell}>
-              <Text className={styles.textSmall}>Лекций</Text>
-              <Text className={styles.textBig}>{lectures}</Text>
-            </Stack>
+            <CourseInfoCell label="Лекций" value={lectures} />
             <div className={styles.divider} />
           </Flex>
-
-          <Stack spacing={0} className={styles.cell}>
-            <Text className={styles.textSmall}>Тестовых заданий</Text>
-            <Text className={styles.textBig}>{tests}</Text>
-          </Stack>
+          <CourseInfoCell label="Тестовых заданий" value={tests} />
         </Flex>
       </Stack>
     </Stack>

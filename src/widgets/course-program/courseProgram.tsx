@@ -10,27 +10,32 @@ interface ProgramProps {
 interface CourseProgramProps {
   program: ProgramProps[]
 }
+
+const ProgramItem = ({ id, name, content }: ProgramProps) => (
+  <Accordion.Item key={id} value={name}>
+    <Accordion.Control>
+      <Stack spacing={0}>
+        <Text>{id} урок</Text>
+        <Title className={styles.titleSmall}>{name}</Title>
+      </Stack>
+    </Accordion.Control>
+    <Accordion.Panel className={styles.content}>
+      <Text>Содержание:</Text>
+      <List className={styles.listItems}>
+        {content.map((element, index) => (
+          <List.Item key={index}>{element}</List.Item>
+        ))}
+      </List>
+    </Accordion.Panel>
+  </Accordion.Item>
+)
+
 export const CourseProgram = ({ program }: CourseProgramProps) => (
   <Stack>
     <Title className={styles.title}>Программа курса</Title>
     <Accordion radius="xl" className={styles.containerAccordion}>
       {program.map((prog) => (
-        <Accordion.Item key={prog.id} value={prog.name}>
-          <Accordion.Control>
-            <Stack spacing={0}>
-              <Text>{prog.id} урок</Text>
-              <Title className={styles.titleSmall}>{prog.name}</Title>
-            </Stack>
-          </Accordion.Control>
-          <Accordion.Panel className={styles.content}>
-            <Text>Содержание:</Text>
-            <List className={styles.listItems}>
-              {prog.content.map((element) => (
-                <List.Item>{element}</List.Item>
-              ))}
-            </List>
-          </Accordion.Panel>
-        </Accordion.Item>
+        <ProgramItem key={prog.id} {...prog} />
       ))}
     </Accordion>
   </Stack>

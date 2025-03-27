@@ -14,6 +14,21 @@ interface СourseProps {
   skills: string[]
 }
 
+const CourseInfoBlock = ({
+  label,
+  value,
+  className,
+}: {
+  label: string
+  value: string
+  className?: string
+}) => (
+  <Stack spacing={0} className={className}>
+    <Text className={styles.textSmall}>{label}</Text>
+    <Text className={styles.textBig}>{value}</Text>
+  </Stack>
+)
+
 export const CourseInfo = ({
   duration,
   lectures,
@@ -31,24 +46,21 @@ export const CourseInfo = ({
     <Stack className={styles.container}>
       <Flex className={styles.container}>
         <Flex className={styles.containerInfo} align="center">
-          <Stack spacing={0}>
-            <Text className={styles.textSmall}>Длительность</Text>
-            <Text className={styles.textBig}>{duration}</Text>
-          </Stack>
-
+          <CourseInfoBlock label="Длительность" value={duration} />
           <Flex align="center">
             <div className={styles.divider} />
-            <Stack spacing={0} className={styles.cell}>
-              <Text className={styles.textSmall}>Лекций</Text>
-              <Text className={styles.textBig}>{lectures}</Text>
-            </Stack>
+            <CourseInfoBlock
+              label="Лекций"
+              value={lectures}
+              className={styles.cell}
+            />
             <div className={styles.divider} />
           </Flex>
-
-          <Stack spacing={0} className={styles.cellTask}>
-            <Text className={styles.textSmall}>Тестовых заданий</Text>
-            <Text className={styles.textBig}>{tests}</Text>
-          </Stack>
+          <CourseInfoBlock
+            label="Тестовых заданий"
+            value={tests}
+            className={styles.cellTask}
+          />
         </Flex>
         <Button className={styles.button}>Получить доступ</Button>
       </Flex>

@@ -4,6 +4,19 @@ import { SelfCourse } from 'entities/course/ui'
 import { UserCard } from 'entities/user/ui'
 import styles from './style/style.module.css'
 
+const CourseAccordionPanel = () => (
+  <Accordion.Panel>
+    <SelfCourse
+      id={1}
+      title="Введение в ИТ"
+      duration="10 часов"
+      lectures={1}
+      students="32 студента"
+      tests={1}
+    />
+  </Accordion.Panel>
+)
+
 const Teacher = () => {
   const navigate = useNavigate()
 
@@ -43,16 +56,7 @@ const Teacher = () => {
           >
             Ваши курсы
           </Accordion.Control>
-          <Accordion.Panel>
-            <SelfCourse
-              id={1}
-              title="Введение в ИТ"
-              duration="10 часов"
-              lectures={1}
-              students="32 студента"
-              tests={1}
-            />
-          </Accordion.Panel>
+          <CourseAccordionPanel />
         </Accordion.Item>
       </Accordion>
     </Stack>

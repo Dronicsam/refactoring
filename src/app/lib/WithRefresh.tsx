@@ -2,6 +2,7 @@ import { Fragment, ReactNode, useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { refresh } from 'entities/user/api'
 import { ROUTES } from 'shared/lib'
+import { getRefreshToken, setRefreshToken, clearRefreshToken } from 'shared/lib/authService'
 import { Loading } from 'shared/ui'
 
 export const WithRefresh = ({ children }: { children: ReactNode }) => {
@@ -10,18 +11,18 @@ export const WithRefresh = ({ children }: { children: ReactNode }) => {
   const navigate = useNavigate()
   const location = useLocation()
 
-  const token = localStorage.getItem('refresh')
+  const token = getRefreshToken()
 
   useEffect(() => {
     if (!token) {
-      localStorage.removeItem('refresh')
+      clearRefreshToken()
       navigate(ROUTES.login)
       setIsLoaded(true)
     } else if (!isLoaded) {
       refresh(token)
-        .then(({ data }) => localStorage.setItem('refresh', data.refresh))
+        .then(({ data }) => setRefreshToken(data.refresh))
         .catch(() => {
-          localStorage.removeItem('refresh')
+          clearRefreshToken()
           navigate(ROUTES.login)
         })
         .finally(() => setIsLoaded(true))
