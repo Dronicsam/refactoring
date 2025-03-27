@@ -41,6 +41,7 @@ export const CourseInfo = ({
   useEffect(() => {
     getCourse(Number(id)).then(({ data: fetchedData }) => setData(fetchedData))
   }, [id])
+  // eslint-disable-next-line no-console
   console.log(data)
   return (
     <Stack className={styles.container}>

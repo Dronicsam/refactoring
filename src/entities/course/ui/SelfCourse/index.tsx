@@ -18,7 +18,7 @@ const CourseInfoCell = ({
   className,
 }: {
   label: string
-  value: string
+  value: string | number
   className?: string
 }) => (
   <Stack spacing={0} className={className}>

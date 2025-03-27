@@ -35,6 +35,7 @@ const StudentAccordionItem = ({
 const Student = () => {
   const [completedCourses, setCompletedCourses] = useState<FetchedCourse[]>([])
   const [joinedCourses, setJoinedCourses] = useState<FetchedCourse[]>([])
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [page, setPage] = useState(0)
   const navigate = useNavigate()
 

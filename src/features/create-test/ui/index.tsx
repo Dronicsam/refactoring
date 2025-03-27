@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { Checkbox, Input, Stack } from '@mantine/core'
 import { useState } from 'react'
 import { Test as TestType } from 'entities/course/types'
@@ -12,6 +13,8 @@ export const CreateTest = ({ test, changeTest }: TestProps) => {
   const [task, setTask] = useState('')
   const [answers, setAnswers] = useState<string[]>([])
   const [right, setRight] = useState('')
+  console.log(test)
+  console.log(changeTest)
 
   return (
     <Stack>

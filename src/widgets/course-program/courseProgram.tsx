@@ -23,6 +23,7 @@ const ProgramItem = ({ id, name, content }: ProgramProps) => (
       <Text>Содержание:</Text>
       <List className={styles.listItems}>
         {content.map((element, index) => (
+          // eslint-disable-next-line react/no-array-index-key
           <List.Item key={index}>{element}</List.Item>
         ))}
       </List>

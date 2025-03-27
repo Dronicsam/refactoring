@@ -5,11 +5,9 @@ import {
   PasswordInput,
   Flex,
   Select,
-  Box,
-  Checkbox,
   Text,
 } from '@mantine/core'
-import { DateInput, DateValue } from '@mantine/dates'
+import { DateInput } from '@mantine/dates'
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { signup } from 'entities/user/api'

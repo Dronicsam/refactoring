@@ -2,7 +2,11 @@ import { Fragment, ReactNode, useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { refresh } from 'entities/user/api'
 import { ROUTES } from 'shared/lib'
-import { getRefreshToken, setRefreshToken, clearRefreshToken } from 'shared/lib/authService'
+import {
+  getRefreshToken,
+  setRefreshToken,
+  clearRefreshToken,
+} from 'shared/lib/authService'
 import { Loading } from 'shared/ui'
 
 export const WithRefresh = ({ children }: { children: ReactNode }) => {
