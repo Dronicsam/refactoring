@@ -55,4 +55,3 @@ export default function App() {
   )
 }
 
-// TODO сделать withRefresh

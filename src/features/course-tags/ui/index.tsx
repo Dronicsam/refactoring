@@ -7,7 +7,7 @@ import {
   Stack,
   Text,
 } from '@mantine/core'
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
 import { useCourseStore } from 'entities/course/model/useCourseStore'
 import { TagCard } from 'entities/course/ui'
 import { AddButton } from 'shared/ui'
@@ -16,19 +16,32 @@ export const CourseTags = () => {
   const [opened, setOpened] = useState(false)
   const [name, setName] = useState('')
   const { tags, setTags } = useCourseStore()
-  const onClose = () => {
+
+  // Используем useCallback, чтобы избежать создания функций заново при каждом рендере
+  const onClose = useCallback(() => {
     setOpened(false)
     setName('')
-  }
-  const onSave = () => {
-    setTags([...tags, name])
+  }, [])
+
+  const onSave = useCallback(() => {
+    // Проверка на пустое имя навыка — чтобы не добавлять пустые строки
+    if (name.trim() === '') return
+
+    // Проверяем дубликаты и предотвращаем добавление их
+    if (tags.includes(name.trim())) {
+      // Можно добавить уведомление пользователю об этом
+      return
+    }
+
+    setTags([...tags, name.trim()])
     onClose()
-  }
+  }, [name, tags, setTags, onClose])
+
   return (
     <Stack>
       <Text fz={20}>Получаемые навыки</Text>
       <Flex gap={20} wrap="wrap">
-        {tags.length ? (
+        {tags.length > 0 ? (
           tags.map((tag) => <TagCard tag={tag} key={tag} />)
         ) : (
           <Text>
@@ -45,6 +58,12 @@ export const CourseTags = () => {
             placeholder="Название навыка"
             value={name}
             onChange={(e) => setName(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') {
+                e.preventDefault()
+                onSave()
+              }
+            }}
           />
           <Button variant="green" fw={300} onClick={onSave} mt={10} ml="75%">
             Сохранить

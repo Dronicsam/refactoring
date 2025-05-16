@@ -14,121 +14,156 @@ import { signup } from 'entities/user/api'
 import { ROUTES } from 'shared/lib'
 
 export const RegisterForm = () => {
-  const [username, setUsername] = useState('')
-  const [email, setEmail] = useState('')
-  const [fullname, setFullname] = useState('')
-  const [phone, setPhone] = useState('')
-  const [date, setDate] = useState<Date>(new Date())
-  const [password, setPassword] = useState('')
-  const [confirmPassword, setConfirmPassword] = useState('')
-  const [gender, setGender] = useState('')
+  const [formData, setFormData] = useState({
+    username: '',
+    email: '',
+    fullname: '',
+    phone: '',
+    date: new Date(),
+    password: '',
+    confirmPassword: '',
+    gender: '',
+  })
 
   const navigate = useNavigate()
 
-  const onSubmit = () => {
-    const name = fullname.split(' ')
-    signup(
-      username,
-      email,
-      password,
-      name[1],
-      name[0],
-      name[2],
-      gender,
-      phone,
-      date,
-      false
-    ).then(() => navigate(ROUTES.login))
+  // Универсальный обработчик изменений формы
+  const handleChange = (field: keyof typeof formData, value: any) => {
+    setFormData((prev) => ({ ...prev, [field]: value }))
   }
+
+  const {
+    username,
+    email,
+    fullname,
+    phone,
+    date,
+    password,
+    confirmPassword,
+    gender,
+  } = formData
+
+  // Парсим ФИО — защититься от некорректного ввода
+  const nameParts = fullname.trim().split(' ')
+  const lastName = nameParts[0] || ''
+  const firstName = nameParts[1] || ''
+  const middleName = nameParts[2] || ''
+
+  const passwordsMatch = password === confirmPassword
+  const passwordValid = password.length >= 8
+  const isFormValid =
+    username && email && fullname && password && passwordsMatch && passwordValid
+
+  const onSubmit = async () => {
+    if (!isFormValid) return
+
+    try {
+      await signup(
+        username,
+        email,
+        password,
+        firstName,
+        lastName,
+        middleName,
+        gender,
+        phone,
+        date,
+        false
+      )
+      navigate(ROUTES.login)
+    } catch (error) {
+      // TODO: обработать ошибку (показать сообщение пользователю)
+      console.error(error)
+    }
+  }
+
   return (
-    <Stack spacing={10} w="600px">
-      <Flex gap={10} w="100%" justify="center">
+    <Stack spacing="md" w={600} mx="auto">
+      <Flex gap="md" justify="center">
         <TextInput
           label="Имя аккаунта"
-          w="350px"
           withAsterisk
+          w="50%"
           value={username}
-          onChange={(e) => setUsername(e.target.value)}
+          onChange={(e) => handleChange('username', e.target.value)}
         />
         <TextInput
           label="Почта"
-          w="350px"
           withAsterisk
+          w="50%"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => handleChange('email', e.target.value)}
         />
       </Flex>
-      <Flex gap={10} w="100%" justify="center">
+
+      <Flex gap="md" justify="center">
         <TextInput
           label="ФИО"
-          w="350px"
           withAsterisk
+          w="50%"
+          placeholder="Фамилия Имя Отчество"
           value={fullname}
-          onChange={(e) => setFullname(e.target.value)}
+          onChange={(e) => handleChange('fullname', e.target.value)}
         />
         <TextInput
           label="Телефон"
-          w="350px"
+          w="50%"
           value={phone}
-          onChange={(e) => setPhone(e.target.value)}
+          onChange={(e) => handleChange('phone', e.target.value)}
         />
       </Flex>
-      <Flex gap={10} w="100%" justify="center">
+
+      <Flex gap="md" justify="center">
         <Select
           label="Пол"
           placeholder="Не выбрано"
-          w="350px"
           clearable
+          w="50%"
           data={[
             { value: 'male', label: 'Мужской' },
             { value: 'female', label: 'Женский' },
           ]}
           value={gender}
-          onChange={(value) => setGender(String(value))}
+          onChange={(value) => handleChange('gender', value || '')}
         />
         <DateInput
           label="Дата рождения"
-          w="350px"
+          w="50%"
           value={date}
-          onChange={(e) => setDate(e as Date)}
+          onChange={(date) => handleChange('date', date || new Date())}
           lang="ru"
         />
       </Flex>
-      <Stack align="center" spacing={5}>
+
+      <Stack align="center" spacing={6}>
         <PasswordInput
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          withAsterisk
           label="Пароль"
+          withAsterisk
+          value={password}
+          onChange={(e) => handleChange('password', e.target.value)}
         />
         <PasswordInput
-          value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
-          withAsterisk
           label="Подтвердите пароль"
+          withAsterisk
+          value={confirmPassword}
+          onChange={(e) => handleChange('confirmPassword', e.target.value)}
         />
-        {password !== confirmPassword && (
-          <Text color="red">Пароли должны совпадать!</Text>
+
+        {!passwordsMatch && <Text color="red">Пароли должны совпадать!</Text>}
+        {!passwordValid && (
+          <Text color="red">Пароль должен быть не менее 8 символов.</Text>
         )}
-        {password.length < 8 && (
-          <Text color="red">Пароль должен быть длиннее 8 символов.</Text>
-        )}
+
         <Button
           variant="green"
-          w="200px"
+          w={200}
+          mt="md"
           onClick={onSubmit}
-          mt={10}
-          disabled={
-            !username ||
-            !fullname ||
-            !email ||
-            !password ||
-            password !== confirmPassword ||
-            password.length < 8
-          }
+          disabled={!isFormValid}
         >
           Зарегистрироваться
         </Button>
+
         <Link style={{ color: 'black' }} to={ROUTES.login}>
           Уже есть аккаунт? Войдите
         </Link>
